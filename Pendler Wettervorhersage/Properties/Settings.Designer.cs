@@ -22,5 +22,14 @@ namespace Pendler_Wettervorhersage.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8bf4ac9e7cd94cbb976213723242712")]
+        public string ApiKey {
+            get {
+                return ((string)(this["ApiKey"]));
+            }
+        }
     }
 }

@@ -19,6 +19,10 @@ namespace Pendler_Wettervorhersage
         public MainWindow()
         {
             InitializeComponent();
+
+            GetWeatherForcast test = new GetWeatherForcast();
+
+            test.UseWeatherApi("München Deutschland");
         }
     }
 }
