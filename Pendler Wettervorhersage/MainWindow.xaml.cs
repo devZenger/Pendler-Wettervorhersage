@@ -19,6 +19,8 @@ namespace Pendler_Wettervorhersage
     /// </summary>
     public partial class MainWindow : Window
     {
+        public WeatherInfoPanelViewModel PanelData { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,11 +31,20 @@ namespace Pendler_Wettervorhersage
 
 
             string svgPath = "pack://application:,,,/Icons/Day/1.svg";
-            
+
+            PanelData = new WeatherInfoPanelViewModel();
+
+            DataContext = this;
+
 
 
 
             SvgImage.Source = new Uri(svgPath);
+
+
+
+
+
 
             /*try
             {ResizeMode="NoResize"

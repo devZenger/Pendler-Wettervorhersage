@@ -31,19 +31,19 @@
         <Border Grid.ColumnSpan="5" Grid.RowSpan="9" Background="Azure" BorderThickness="1" CornerRadius="10" BorderBrush="Gray" Padding="10"></Border>
 
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock Text="Überschrift" FontWeight="Bold"/>
+            <TextBlock Text="{Binding TitleDay}" FontWeight="Bold"/>
         </Viewbox>
         <Viewbox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock Text="Unterschrift"/>
+            <TextBlock Text="{Binding ApiWeatherDiscription}"/>
         </Viewbox>
         <Viewbox Grid.Row="4" Grid.Column="2" Grid.RowSpan="2">
             <StackPanel>
-                <TextBlock Text="5°C"/>
-                <TextBlock Text="8°C"/>
+                <TextBlock Text="{Binding TemperaturC}"/>
+                <TextBlock Text="{Binding WindChillTempC}"/>
             </StackPanel>
         </Viewbox>
         <Viewbox Grid.Row="7" Grid.Column="1">
-            <TextBlock Text="Wind Regen"/>
+            <TextBlock Text="{Binding AddtionalInformation}"/>
         </Viewbox>
         <svgc:SvgViewbox Source="/Icons/Day/1.svg" Grid.Column="1" Grid.Row="3" Grid.RowSpan="4" Width="50" Height="50"/>
     </Grid>
