@@ -7,8 +7,8 @@
         
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800"  >
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -26,15 +26,25 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="20"></RowDefinition>
         </Grid.RowDefinitions>
-        <svgc:SvgViewbox x:Name="SvgImage" Grid.Column="4" Grid.Row="3" Width="50" Height="50"/>
+        <svgc:SvgViewbox x:Name="SvgImage" Grid.Column="4" Grid.Row="2" Width="50" Height="50"/>
         <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" RenderTransformOrigin="0.483,1.671">
             <TextBlock TextWrapping="Wrap" Text="TextBlock" FontWeight="Bold"/>
-          
+
         </Label>
-        <Label Content="9°C \n 10°C" Grid.Column="4" Grid.Row="2" Margin="0,20,0,0" HorizontalAlignment="Right"/>
+
+
         <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
-        <TextBlock TextWrapping="Wrap" Text="TextBlock" Grid.Column="4" Grid.Row="3" FontFamily="Verdana" FontWeight="Bold"/>
-       
+        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+        <Viewbox Grid.Column="4" Grid.Row="4" Margin="0,0,0,30">
+            <StackPanel>
+                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
+                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
+                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
+            </StackPanel>
+            
+        </Viewbox>
+
+        <local:WeatherInfoPanelControl Grid.Column="2" Grid.Row="2" ></local:WeatherInfoPanelControl>
 
     </Grid>
 </Window>

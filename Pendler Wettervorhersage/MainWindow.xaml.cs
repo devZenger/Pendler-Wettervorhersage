@@ -29,14 +29,28 @@ namespace Pendler_Wettervorhersage
 
 
             string svgPath = "pack://application:,,,/Icons/Day/1.svg";
+            
+
 
 
             SvgImage.Source = new Uri(svgPath);
 
+            /*try
+            {ResizeMode="NoResize"
+                string test = "fdasfd";
+
+                int number = int.Parse(test); 
+                // Weitere Logik hier
+                 }
+            catch (FormatException ex) 
+            { 
+                MessageBox.Show("Ungültige Eingabe! Bitte geben Sie eine Zahl ein.", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); 
+            }/*/
+
         }
 
 
 
-        }
+    }
 
 }
