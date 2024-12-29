@@ -10,7 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\Day\1.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SharpVectors" Version="1.8.4.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\Day\1.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,10 +35,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Icons\" />
   </ItemGroup>
 
 </Project>

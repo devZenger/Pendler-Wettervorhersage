@@ -8,6 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SharpVectors;
+
+
 
 namespace Pendler_Wettervorhersage
 {
@@ -23,6 +26,17 @@ namespace Pendler_Wettervorhersage
             //GetWeatherForcast test = new GetWeatherForcast();
 
             //test.UseWeatherApi("München Deutschland");
+
+
+            string svgPath = "pack://application:,,,/Icons/Day/1.svg";
+
+
+            SvgImage.Source = new Uri(svgPath);
+
         }
-    }
+
+
+
+        }
+
 }

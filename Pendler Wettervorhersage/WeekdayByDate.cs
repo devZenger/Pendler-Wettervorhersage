@@ -23,10 +23,6 @@ namespace Pendler_Wettervorhersage
 
             return dateOfWeekday.DayOfWeek.ToString();
 
-
-
-            
-
         }
 
     }
