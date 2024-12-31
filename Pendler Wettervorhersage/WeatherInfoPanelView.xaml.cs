@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Pendler_Wettervorhersage
 {
     /// <summary>
-    /// Interaktionslogik für WeatherInfoPanelControl.xaml
+    /// Interaktionslogik für WeatherInfoPanelView.xaml
     /// </summary>
-    public partial class WeatherInfoPanelControl : UserControl
+    public partial class WeatherInfoPanelView : UserControl
     {
-        public WeatherInfoPanelControl()
+        public WeatherInfoPanelView()
         {
             InitializeComponent();
         }

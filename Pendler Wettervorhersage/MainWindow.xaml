@@ -7,25 +7,33 @@
         
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"  >
+        Title="MainWindow" Height="550" Width="800"  >
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.03*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="0.03*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="20"></ColumnDefinition>
+            <ColumnDefinition Width="0.03*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="0.5*"></RowDefinition>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="0.05*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        
+
         <svgc:SvgViewbox x:Name="SvgImage" Grid.Column="4" Grid.Row="2" Width="50" Height="50"/>
         <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" RenderTransformOrigin="0.483,1.671">
             <TextBlock TextWrapping="Wrap" Text="TextBlock" FontWeight="Bold"/>
@@ -33,7 +41,7 @@
         </Label>
 
 
-        <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
+        <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
         <TextBlock Grid.Column="4" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
         <Viewbox Grid.Column="4" Grid.Row="4" Margin="0,0,0,30">
             <StackPanel>
@@ -43,8 +51,17 @@
             </StackPanel>
             
         </Viewbox>
+       
+        
 
-        <local:WeatherInfoPanelControl DataContext="{Binding PanelData}" Grid.Column="2" Grid.Row="2" ></local:WeatherInfoPanelControl>
+
+
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="2" Grid.Row="6"/>
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="2" Grid.Row="8" ></local:WeatherInfoPanelView>
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="4" Grid.Row="6" ></local:WeatherInfoPanelView>
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="4" Grid.Row="8" ></local:WeatherInfoPanelView>
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="6" Grid.Row="6" ></local:WeatherInfoPanelView>
+        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="6" Grid.Row="8" ></local:WeatherInfoPanelView>
 
     </Grid>
 </Window>

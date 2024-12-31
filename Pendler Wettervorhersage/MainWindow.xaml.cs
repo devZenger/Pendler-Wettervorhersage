@@ -19,12 +19,18 @@ namespace Pendler_Wettervorhersage
     /// </summary>
     public partial class MainWindow : Window
     {
-        public WeatherInfoPanelViewModel PanelData { get; set; }
+        
 
         public MainWindow()
         {
             InitializeComponent();
 
+            //this.DataContext = new MainViewModel();
+
+            var viewModel = new MainViewModel();
+            this.DataContext = viewModel;
+
+            //this.DataContext = new MainViewModel();
             //GetWeatherForcast test = new GetWeatherForcast();
 
             //test.UseWeatherApi("München Deutschland");
@@ -32,9 +38,14 @@ namespace Pendler_Wettervorhersage
 
             string svgPath = "pack://application:,,,/Icons/Day/1.svg";
 
-            PanelData = new WeatherInfoPanelViewModel();
+            
 
-            DataContext = this;
+         
+
+
+
+
+            
 
 
 
@@ -43,7 +54,7 @@ namespace Pendler_Wettervorhersage
 
 
 
-
+            // < local:WeatherInfoPanelControl DataContext = "{Binding WorkplaceWeatherInfoPanel}" Grid.Column = "{Binding GridColum}" Grid.Row = "2" ></ local:WeatherInfoPanelControl >
 
 
             /*try

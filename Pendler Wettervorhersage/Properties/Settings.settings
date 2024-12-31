@@ -5,5 +5,20 @@
     <Setting Name="ApiKey" Type="System.String" Scope="Application">
       <Value Profile="(Default)">8bf4ac9e7cd94cbb976213723242712</Value>
     </Setting>
+    <Setting Name="WorkPlaceLat" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WorkPlaceLon" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WorkPlaceTimeStart" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WorkPlaceTimeEnd" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="WorkPlaceLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -31,5 +31,65 @@ namespace Pendler_Wettervorhersage.Properties {
                 return ((string)(this["ApiKey"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkPlaceLat {
+            get {
+                return ((string)(this["WorkPlaceLat"]));
+            }
+            set {
+                this["WorkPlaceLat"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkPlaceLon {
+            get {
+                return ((string)(this["WorkPlaceLon"]));
+            }
+            set {
+                this["WorkPlaceLon"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkPlaceTimeStart {
+            get {
+                return ((string)(this["WorkPlaceTimeStart"]));
+            }
+            set {
+                this["WorkPlaceTimeStart"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkPlaceTimeEnd {
+            get {
+                return ((string)(this["WorkPlaceTimeEnd"]));
+            }
+            set {
+                this["WorkPlaceTimeEnd"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkPlaceLocation {
+            get {
+                return ((string)(this["WorkPlaceLocation"]));
+            }
+            set {
+                this["WorkPlaceLocation"] = value;
+            }
+        }
     }
 }
