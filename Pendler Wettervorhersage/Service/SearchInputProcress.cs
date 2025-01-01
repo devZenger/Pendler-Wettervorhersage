@@ -49,7 +49,7 @@ namespace Pendler_Wettervorhersage
                 settingmanager.WorkplaceSartTime = workplaceInput.StartTime;
                 settingmanager.WorkplaceEndTimer = workplaceInput.EndTime;
 
-
+                
 
 
             }

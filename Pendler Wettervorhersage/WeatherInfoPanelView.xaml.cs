@@ -23,6 +23,9 @@ namespace Pendler_Wettervorhersage
         public WeatherInfoPanelView()
         {
             InitializeComponent();
+
+
+
         }
     }
 }

@@ -47,10 +47,11 @@ namespace Pendler_Wettervorhersage
             }
 
             MessageBox.Show($"{messageErrors.MessageErrors[messageNumber].Message}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-
-
         }
         
+
+
+
 
 
 

@@ -11,7 +11,7 @@ namespace Pendler_Wettervorhersage
     internal class ForecastDataProcess
     {
 
-        public void start(string location, string timeString, int day) 
+        public void SingleDayForecast(string location, string timeString, int day) 
         {
             ApiWeatherForcastService useApi = new ApiWeatherForcastService();
 
