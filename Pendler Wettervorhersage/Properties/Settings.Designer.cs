@@ -23,72 +23,111 @@ namespace Pendler_Wettervorhersage.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("8bf4ac9e7cd94cbb976213723242712")]
         public string ApiKey {
             get {
                 return ((string)(this["ApiKey"]));
             }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkPlaceLat {
-            get {
-                return ((string)(this["WorkPlaceLat"]));
-            }
             set {
-                this["WorkPlaceLat"] = value;
+                this["ApiKey"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkPlaceLon {
+        public string WorkplaceLat {
             get {
-                return ((string)(this["WorkPlaceLon"]));
+                return ((string)(this["WorkplaceLat"]));
             }
             set {
-                this["WorkPlaceLon"] = value;
+                this["WorkplaceLat"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkPlaceTimeStart {
+        public string WorkplaceLon {
             get {
-                return ((string)(this["WorkPlaceTimeStart"]));
+                return ((string)(this["WorkplaceLon"]));
             }
             set {
-                this["WorkPlaceTimeStart"] = value;
+                this["WorkplaceLon"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkPlaceTimeEnd {
+        public string WorkplaceStartTime {
             get {
-                return ((string)(this["WorkPlaceTimeEnd"]));
+                return ((string)(this["WorkplaceStartTime"]));
             }
             set {
-                this["WorkPlaceTimeEnd"] = value;
+                this["WorkplaceStartTime"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WorkPlaceLocation {
+        public string WorkplaceEndTime {
             get {
-                return ((string)(this["WorkPlaceLocation"]));
+                return ((string)(this["WorkplaceEndTime"]));
             }
             set {
-                this["WorkPlaceLocation"] = value;
+                this["WorkplaceEndTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WorkplaceLocation {
+            get {
+                return ((string)(this["WorkplaceLocation"]));
+            }
+            set {
+                this["WorkplaceLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HometownLocation {
+            get {
+                return ((string)(this["HometownLocation"]));
+            }
+            set {
+                this["HometownLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HometownStartTime {
+            get {
+                return ((string)(this["HometownStartTime"]));
+            }
+            set {
+                this["HometownStartTime"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string HometownEndTime {
+            get {
+                return ((string)(this["HometownEndTime"]));
+            }
+            set {
+                this["HometownEndTime"] = value;
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pendler_Wettervorhersage.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +13,20 @@ namespace Pendler_Wettervorhersage
         //public SearchParameter WorkplaceInput { get; set; } = new SearchParameter();
        
 
-        public void CheckSearchInput(SearchParameter HometownInput, SearchParameter WorkplaceInput)
+        public void CheckSearchInput(SearchParameter hometownInput, SearchParameter workplaceInput)
         {
             ErrorMessages errorMessages = new ErrorMessages();
 
             TimeTest checkTimeInput = new TimeTest();
 
-            errorMessages.MessageErrors[0].IsError = !checkTimeInput.CheckTime(HometownInput.StartTime);
-            errorMessages.MessageErrors[1].IsError = !checkTimeInput.CheckTime(HometownInput.EndTime);
-            errorMessages.MessageErrors[2].IsError = !checkTimeInput.CheckTime(WorkplaceInput.StartTime);
-            errorMessages.MessageErrors[3].IsError = !checkTimeInput.CheckTime(WorkplaceInput.EndTime);
+            errorMessages.MessageErrors[0].IsError = !checkTimeInput.CheckTime(hometownInput.StartTime);
+            errorMessages.MessageErrors[1].IsError = !checkTimeInput.CheckTime(hometownInput.EndTime);
+            errorMessages.MessageErrors[2].IsError = !checkTimeInput.CheckTime(workplaceInput.StartTime);
+            errorMessages.MessageErrors[3].IsError = !checkTimeInput.CheckTime(workplaceInput.EndTime);
 
             bool checkResult = false;
 
-            bool test2 = (checkTimeInput.CheckTime(HometownInput.StartTime));
+            bool test2 = (checkTimeInput.CheckTime(hometownInput.StartTime));
 
             foreach (var inputError in errorMessages.MessageErrors)
             {
@@ -43,6 +44,16 @@ namespace Pendler_Wettervorhersage
             }
             else
             {
+                SettingsManager settingmanager = new SettingsManager();
+
+                settingmanager.HometownLocation = hometownInput.SearchLocation;
+                settingmanager.HometownSartTime = hometownInput.StartTime;
+                settingmanager.WorkplaceEndTimer=hometownInput.EndTime;
+
+                settingmanager.WorkplaceLocation = workplaceInput.SearchLocation;
+                settingmanager.WorkplaceSartTime = workplaceInput.StartTime;
+                settingmanager.WorkplaceEndTimer = workplaceInput.EndTime;
+
 
             }
 

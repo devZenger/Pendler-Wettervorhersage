@@ -2,22 +2,31 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pendler_Wettervorhersage.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="ApiKey" Type="System.String" Scope="Application">
+    <Setting Name="ApiKey" Type="System.String" Scope="User">
       <Value Profile="(Default)">8bf4ac9e7cd94cbb976213723242712</Value>
     </Setting>
-    <Setting Name="WorkPlaceLat" Type="System.String" Scope="User">
+    <Setting Name="WorkplaceLat" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WorkPlaceLon" Type="System.String" Scope="User">
+    <Setting Name="WorkplaceLon" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WorkPlaceTimeStart" Type="System.String" Scope="User">
+    <Setting Name="WorkplaceStartTime" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WorkPlaceTimeEnd" Type="System.String" Scope="User">
+    <Setting Name="WorkplaceEndTime" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WorkPlaceLocation" Type="System.String" Scope="User">
+    <Setting Name="WorkplaceLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HometownLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HometownStartTime" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="HometownEndTime" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>
