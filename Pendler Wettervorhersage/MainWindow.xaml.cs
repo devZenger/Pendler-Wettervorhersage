@@ -1,14 +1,4 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using SharpVectors;
+﻿using System.Windows;
 
 
 
@@ -19,7 +9,8 @@ namespace Pendler_Wettervorhersage
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+        private readonly SearchParameter _hometownInput = new SearchParameter();
+        private readonly SearchParameter _workplaceInput = new SearchParameter();
 
         public MainWindow()
         {
@@ -28,22 +19,10 @@ namespace Pendler_Wettervorhersage
             var viewModel = new MainViewModel();
             this.DataContext = viewModel;
 
-            
-           
-
-            
-
-         
 
 
 
 
-            
-
-
-
-
-            
 
         }
 
@@ -51,6 +30,18 @@ namespace Pendler_Wettervorhersage
         {
             MainViewModel viewModel = (MainViewModel)DataContext;
 
+            _hometownInput.SearchLocation = viewModel.Search.HometownInput.SearchLocation;
+            _hometownInput.StartTime = viewModel.Search.HometownInput.StartTime;
+            _hometownInput.EndTime = viewModel.Search.HometownInput.EndTime;
+
+            _workplaceInput.SearchLocation = viewModel.Search.WorkplaceInput.SearchLocation;
+            _workplaceInput.StartTime = viewModel.Search.WorkplaceInput.StartTime;
+            _workplaceInput.EndTime = viewModel.Search.WorkplaceInput.EndTime;
+
+
+            SearchInputProcress input = new SearchInputProcress();
+
+            input.CheckSearchInput(_hometownInput, _workplaceInput);
 
 
         }

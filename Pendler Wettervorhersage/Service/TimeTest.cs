@@ -34,10 +34,6 @@
                             if (timeResult[1] <= 60 && timeResult[1] >= 0 && test[1] == true)
                             { timeTest = true; }
                         }
-
-                        if (timeTest) { Console.WriteLine("richtig für" + timeInput[i] + "  " + timeResult[0] + ":" + timeResult[1] + "  " + i + "  " + j); }
-                        timeTest = false;
-
                     }
                 }
 

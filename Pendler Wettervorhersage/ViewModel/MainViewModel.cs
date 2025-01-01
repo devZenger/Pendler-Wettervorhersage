@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace Pendler_Wettervorhersage
 {
@@ -35,6 +36,20 @@ namespace Pendler_Wettervorhersage
             Search = new SearchInputViewModel();
         }
 
+        public void Errormessage(ErrorMessages messageErrors)
+        {
+            int messageNumber;
+
+            for (messageNumber = 0; messageNumber < messageErrors.MessageErrors.Count; messageNumber++) 
+            {
+                if (messageErrors.MessageErrors[messageNumber].IsError == true)
+                   break;
+            }
+
+            MessageBox.Show($"{messageErrors.MessageErrors[messageNumber].Message}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
+
+
+        }
         
 
 
