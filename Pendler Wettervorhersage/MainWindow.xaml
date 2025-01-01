@@ -80,7 +80,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Text="München" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox Text="{Binding Search.WorkplaceInput.SearchLocation}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         </Grid>
         <!--Workplace Time Input-->
         <Grid Grid.Column="2" Grid.Row="4">
@@ -88,8 +88,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Text="8:00" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
-            <TextBox Text="17:00" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+            <TextBox Text="{Binding Search.WorkplaceInput.StartTime}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
+            <TextBox Text="{Binding Search.WorkplaceInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
         </Grid>
         <!--Hometown Input-->
         <Grid Grid.Column="1" Grid.Row="2">
@@ -100,7 +100,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <TextBox Text="{Binding Search.HometownInput.SearchLocation}" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
 
         </Grid>
         <!--Hometown Time Input-->
@@ -109,8 +109,8 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Text="7:00" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
-            <TextBox Text="18:00" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+            <TextBox Text="{Binding Search.HometownInput.StartTime}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
+            <TextBox Text="{Binding Search.HometownInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
         </Grid>
 
         <Button x:Name="update" Content="Aktualisieren" Grid.Column="3" Grid.Row="1"/>

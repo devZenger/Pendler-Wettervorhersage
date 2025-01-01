@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class UserInputViewModel
+    internal class SearchInputViewModel : INotifyPropertyChanged
     {
         private SearchParameterViewModel? _hometownInput;
 
@@ -35,17 +35,19 @@ namespace Pendler_Wettervorhersage
             }
         }
 
-        public UserInputViewModel()
+        public SearchInputViewModel()
         {
             HometownInput = new SearchParameterViewModel();
-            
+
+            HometownInput.SearchLocation = "Ort eingeben";
             HometownInput.StartTime = "7:00";
             HometownInput.EndTime = "18:00";
 
             WorkplaceInput = new SearchParameterViewModel();
 
+            WorkplaceInput.SearchLocation = "München";
             WorkplaceInput.StartTime = "8:00";
-            WorkplaceInput.EndTime = "16:00";
+            WorkplaceInput.EndTime = "17:00";
         }
 
 

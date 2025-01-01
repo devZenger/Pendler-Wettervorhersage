@@ -8,15 +8,15 @@ namespace Pendler_Wettervorhersage
         public WeatherInfoPanelViewModel[] HometownPanels { get; set; } = new WeatherInfoPanelViewModel[6];
         public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6];
 
-        private UserInputViewModel _userInput;
-        public UserInputViewModel UserInput
+        private SearchInputViewModel _search;
+        public SearchInputViewModel Search
         {
-            get => _userInput;
+            get => _search;
             set
             {
-                if (_userInput != value)
+                if (_search != value)
                 {
-                    _userInput = value;
+                    _search = value;
                     OnPropertyChanged();
                 }
             }
@@ -32,8 +32,7 @@ namespace Pendler_Wettervorhersage
                 
             }
 
-            WorkplacePanels[0].TitleDay = "Heute";
-
+            Search = new SearchInputViewModel();
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
