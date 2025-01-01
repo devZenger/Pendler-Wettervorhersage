@@ -10,7 +10,7 @@ namespace Pendler_Wettervorhersage
 {
     internal class ApiWeatherForcastService
     {
-        public void UseWeatherApi(string searchLocation)
+        public WeatherApiResponse UseWeatherApi(string searchLocation)
         {
             string apiKey = Properties.Settings.Default.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";
@@ -30,9 +30,10 @@ namespace Pendler_Wettervorhersage
 
             WeatherApiResponse? weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
 
-            int test = weatherApiRespone.Forecast.Forecastdays[0].Hours[4].WillItRain;
+            return weatherApiRespone;
 
-            Console.WriteLine(test);
+
+            
 
 
 

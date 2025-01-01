@@ -1,9 +1,4 @@
 ﻿using Pendler_Wettervorhersage.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pendler_Wettervorhersage
 {
@@ -11,7 +6,7 @@ namespace Pendler_Wettervorhersage
     {
         //public SearchParameter HometownInput {  get; set; } = new SearchParameter();
         //public SearchParameter WorkplaceInput { get; set; } = new SearchParameter();
-       
+
 
         public void CheckSearchInput(SearchParameter hometownInput, SearchParameter workplaceInput)
         {
@@ -34,13 +29,13 @@ namespace Pendler_Wettervorhersage
                 if (checkResult)
                     break;
             }
-           
+
 
             if (checkResult == true)
             {
                 MainViewModel viewModel = new MainViewModel();
                 viewModel.Errormessage(errorMessages);
-                
+
             }
             else
             {
@@ -48,11 +43,13 @@ namespace Pendler_Wettervorhersage
 
                 settingmanager.HometownLocation = hometownInput.SearchLocation;
                 settingmanager.HometownSartTime = hometownInput.StartTime;
-                settingmanager.WorkplaceEndTimer=hometownInput.EndTime;
+                settingmanager.WorkplaceEndTimer = hometownInput.EndTime;
 
                 settingmanager.WorkplaceLocation = workplaceInput.SearchLocation;
                 settingmanager.WorkplaceSartTime = workplaceInput.StartTime;
                 settingmanager.WorkplaceEndTimer = workplaceInput.EndTime;
+
+
 
 
             }
