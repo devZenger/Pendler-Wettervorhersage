@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class MainViewModel : INotifyPropertyChanged
+    internal class MainViewModel : NotifyPropertyChangedBase
     {
         public WeatherInfoPanelViewModel[] HometownPanels { get; set; } = new WeatherInfoPanelViewModel[6];
         public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6];
@@ -35,12 +35,7 @@ namespace Pendler_Wettervorhersage
             Search = new SearchInputViewModel();
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
 
 
 

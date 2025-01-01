@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class WeatherInfoPanelViewModel : INotifyPropertyChanged
+    internal class WeatherInfoPanelViewModel : NotifyPropertyChangedBase
     {
         private string _titleDay = "Heute";
         public string TitleDay
@@ -82,18 +82,18 @@ namespace Pendler_Wettervorhersage
 
 
 
-        public void UpdateAll(string title)
+        public void UpdateAll(string title, string discription, string tempC, string windChillC, string addInformation)
         {
-            TitleDay = title;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+            _titleDay = title;
+            _apiWeatherDiscription = discription;
+            _temperaturC= tempC;
+            _windChillTempC= windChillC;
+            _addtionalInformation = addInformation;
+
+            OnPropertyChanged();
         }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public virtual void OnPropertyChanged([CallerMemberName] string propertyName= "") 
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+      
 
 
            

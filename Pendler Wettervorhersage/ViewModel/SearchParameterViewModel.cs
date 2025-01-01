@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class SearchParameterViewModel : INotifyPropertyChanged
+    internal class SearchParameterViewModel : NotifyPropertyChangedBase
     {
         private string _searchLocation = string.Empty;
         public string SearchLocation
@@ -60,11 +60,6 @@ namespace Pendler_Wettervorhersage
 
 
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
     }
 }
