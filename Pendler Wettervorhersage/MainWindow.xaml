@@ -120,7 +120,7 @@
                 <RowDefinition Height="0.5*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="save" Content="Save" Grid.Row="1"/>
+            <Button x:Name="SaveAndCall" Click="SaveAndCall_Click"  Content="Speichern &amp; Abrufen" Grid.Row="1"/>
         </Grid>
        
     </Grid>

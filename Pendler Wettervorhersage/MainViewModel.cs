@@ -1,15 +1,28 @@
 ﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class MainViewModel // : INotifyPropertyChanged
+    internal class MainViewModel : INotifyPropertyChanged
     {
         public WeatherInfoPanelViewModel[] HometownPanels { get; set; } = new WeatherInfoPanelViewModel[6];
         public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6];
+
+        private UserInputViewModel _userInput;
+        public UserInputViewModel UserInput
+        {
+            get => _userInput;
+            set
+            {
+                if (_userInput != value)
+                {
+                    _userInput = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         
-
-
-
         public MainViewModel()
         {
             for (int i = 0; i < WorkplacePanels.Length; i++)
@@ -25,13 +38,12 @@ namespace Pendler_Wettervorhersage
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        /*
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
-         {
-             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        public virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-         }
-        */
+
 
 
     }
