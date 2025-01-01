@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pendler_Wettervorhersage
 {
-    internal class GetWeatherForcast
+    internal class ApiWeatherForcastService
     {
         public void UseWeatherApi(string searchLocation)
         {
@@ -28,7 +28,7 @@ namespace Pendler_Wettervorhersage
 
             //Console.WriteLine(responseWeatherApi);
 
-            WeatherApiResponse weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
+            WeatherApiResponse? weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
 
             int test = weatherApiRespone.Forecast.Forecastdays[0].Hours[4].WillItRain;
 

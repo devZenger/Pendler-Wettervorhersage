@@ -8,60 +8,120 @@
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800"  >
+    
     <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"></ColumnDefinition>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.03*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.03*"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="0.03*"></ColumnDefinition>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.3*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.05*"></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.05*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="0.05*"/>
+
         </Grid.RowDefinitions>
-
         
-
-        <svgc:SvgViewbox x:Name="SvgImage" Grid.Column="4" Grid.Row="2" Width="50" Height="50"/>
-        <Label Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" RenderTransformOrigin="0.483,1.671">
-            <TextBlock TextWrapping="Wrap" Text="TextBlock" FontWeight="Bold"/>
-
-        </Label>
-
-
-        <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="1" Grid.Row="2" Grid.RowSpan="3" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
-        <TextBlock Grid.Column="4" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
-        <Viewbox Grid.Column="4" Grid.Row="4" Margin="0,0,0,30">
-            <StackPanel>
-                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
-                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
-                <TextBlock Text="Hallo Welt" HorizontalAlignment="Center" VerticalAlignment="Center">S</TextBlock>
-            </StackPanel>
-            
-        </Viewbox>
        
-        
+        <!--WeatherInfopanels Hometown-->
+        <Grid Grid.Column="3" Grid.Row="2" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="2"/>
+        </Grid>
+        <!--WeatherInfopanels Workplace-->
+        <Grid Grid.Column="3" Grid.Row="4" ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="2"/>
+        </Grid>
+        <!--Workplace Input-->
+        <Grid Grid.Column="1" Grid.Row="4"  ShowGridLines="True" MinWidth="200">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Text="München" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        </Grid>
+        <!--Workplace Time Input-->
+        <Grid Grid.Column="2" Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Text="8:00" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
+            <TextBox Text="17:00" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+        </Grid>
+        <!--Hometown Input-->
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+               
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
+            <TextBox Text="Pfaffenhofen An Der Ilm" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
 
+        </Grid>
+        <!--Hometown Time Input-->
+        <Grid Grid.Column="2" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBox Text="7:00" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
+            <TextBox Text="18:00" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+        </Grid>
 
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="2" Grid.Row="6"/>
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="2" Grid.Row="8" ></local:WeatherInfoPanelView>
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="4" Grid.Row="6" ></local:WeatherInfoPanelView>
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="4" Grid.Row="8" ></local:WeatherInfoPanelView>
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="6" Grid.Row="6" ></local:WeatherInfoPanelView>
-        <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="6" Grid.Row="8" ></local:WeatherInfoPanelView>
-
+        <Button x:Name="update" Content="Aktualisieren" Grid.Column="3" Grid.Row="1"/>
+        <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button x:Name="save" Content="Save" Grid.Row="1"/>
+        </Grid>
+       
     </Grid>
 </Window>

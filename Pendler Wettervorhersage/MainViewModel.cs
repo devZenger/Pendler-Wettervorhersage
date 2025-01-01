@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using Pendler_Wettervorhersage;
-using System.Runtime.CompilerServices;
+﻿using System.ComponentModel;
 
 namespace Pendler_Wettervorhersage
 {
     internal class MainViewModel // : INotifyPropertyChanged
     {
+        public WeatherInfoPanelViewModel[] HometownPanels { get; set; } = new WeatherInfoPanelViewModel[6];
+        public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6];
+        
 
-        public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6]; 
 
-
-       
 
         public MainViewModel()
         {
             for (int i = 0; i < WorkplacePanels.Length; i++)
-            { WorkplacePanels[i] = new WeatherInfoPanelViewModel(); }
+            {
+                HometownPanels[i] = new WeatherInfoPanelViewModel();
+                WorkplacePanels[i] = new WeatherInfoPanelViewModel();
+                
+            }
 
             WorkplacePanels[0].TitleDay = "Heute";
 
@@ -36,6 +33,6 @@ namespace Pendler_Wettervorhersage
          }
         */
 
-        
+
     }
 }
