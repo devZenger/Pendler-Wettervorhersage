@@ -29,8 +29,7 @@ namespace Pendler_Wettervorhersage
             for (int i = 0; i < WorkplacePanels.Length; i++)
             {
                 HometownPanels[i] = new WeatherInfoPanelViewModel();
-                WorkplacePanels[i] = new WeatherInfoPanelViewModel();
-                
+                WorkplacePanels[i] = new WeatherInfoPanelViewModel(); 
             }
 
             Search = new SearchInputViewModel();

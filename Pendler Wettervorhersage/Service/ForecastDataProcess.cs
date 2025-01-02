@@ -1,41 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Navigation;
+﻿using System.Collections.Generic;
 
 namespace Pendler_Wettervorhersage
 {
     internal class ForecastDataProcess
     {
 
-        public void SingleDayForecast(string location, string timeString, int day) 
+        public List<ForecastData> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
         {
-            ApiWeatherForcastService useApi = new ApiWeatherForcastService();
+            List<ForecastData> forecastInfosForPanels = new List<ForecastData>();
+  
+            for (int i = 0; i < 3;)
+            {
+                forecastInfosForPanels.Add(SingleDayForecast(rawForecastData, searchInput.StartTime, i));
+                forecastInfosForPanels.Add(SingleDayForecast(rawForecastData, searchInput.EndTime, i));
+            }
+            return forecastInfosForPanels;
+        }
 
-            WeatherApiResponse rawForecastData = useApi.UseWeatherApi(location);
 
-            
+        internal ForecastData SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
+        {
             int[] time = TimeToInt(timeString);
+
+            ForecastData.ForecastReport forecastReport = new ForecastData.ForecastReport();
+
             
 
-            ForecastData forecastData = new ForecastData();
 
-
-            forecastData.Time = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
+            forecastReport.Time = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
             decimal temp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].TempC;
             decimal tempOneHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0] + 1].TempC;
             decimal tempAtMoment = ValueAtMinutes(temp, tempOneHourLater, time[1]);
-            forecastData.TempC = tempAtMoment.ToString("F1") + "°C";
-            forecastData.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
-            forecastData.Icon = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
+            forecastReport.TempC = tempAtMoment.ToString("F1") + "°C";
+            forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
+            forecastReport.Icon = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
 
 
-            
-          
 
+
+
+
+            ForecastData forecastData = new ForecastData(forecastReport);
+
+            return forecastData;
         }
 
         public int[] TimeToInt(string timeInput)
@@ -49,9 +56,9 @@ namespace Pendler_Wettervorhersage
 
         public decimal ValueAtMinutes(decimal one, decimal two, int minutes)
         {
-            return (one + two)/60 * minutes;  
-        } 
+            return (one + two) / 60 * minutes;
+        }
 
-        
+
     }
 }

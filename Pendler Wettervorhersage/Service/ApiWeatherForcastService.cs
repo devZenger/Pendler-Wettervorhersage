@@ -33,17 +33,6 @@ namespace Pendler_Wettervorhersage
             return weatherApiRespone;
 
 
-            
-
-
-
-
-            
-
-
-
-
-
         }
     }
 }
