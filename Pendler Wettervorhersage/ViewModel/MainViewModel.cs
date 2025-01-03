@@ -6,11 +6,11 @@ namespace Pendler_Wettervorhersage
 {
     internal class MainViewModel : NotifyPropertyChangedBase
     {
-        public WeatherInfoPanelViewModel[] HometownPanels { get; set; } = new WeatherInfoPanelViewModel[6];
-        public WeatherInfoPanelViewModel[] WorkplacePanels { get; set; } = new WeatherInfoPanelViewModel[6];
+        public ForecastReport[] HometownPanels { get; set; } = new ForecastReport[6];
+        public ForecastReport[] WorkplacePanels { get; set; } = new ForecastReport[6];
 
-        private SearchInputViewModel _search;
-        public SearchInputViewModel Search
+        private SearchInput _search;
+        public SearchInput Search
         {
             get => _search;
             set
@@ -28,11 +28,11 @@ namespace Pendler_Wettervorhersage
         {
             for (int i = 0; i < WorkplacePanels.Length; i++)
             {
-                HometownPanels[i] = new WeatherInfoPanelViewModel();
-                WorkplacePanels[i] = new WeatherInfoPanelViewModel(); 
+                HometownPanels[i] = new ForecastReport();
+                WorkplacePanels[i] = new ForecastReport(); 
             }
 
-            Search = new SearchInputViewModel();
+            Search = new SearchInput();
         }
 
         public void Errormessage(ErrorMessages messageErrors)

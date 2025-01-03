@@ -9,17 +9,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800"  >
     
-    <Grid ShowGridLines="True">
+    <Grid Background="RoyalBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width=".1*"/>
+            <ColumnDefinition x:Name="SeachInputColumn"  Width="3*"/>
             <ColumnDefinition Width="0.6*"/>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="0.3*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition Height="0.05*"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -29,49 +30,55 @@
         
        
         <!--WeatherInfopanels Hometown-->
-        <Grid Grid.Column="3" Grid.Row="2" ShowGridLines="True">
+        <Grid Grid.Column="4" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="3"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="3"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="3"/>
         </Grid>
         <!--WeatherInfopanels Workplace-->
-        <Grid Grid.Column="3" Grid.Row="4" ShowGridLines="True">
+        <Grid Grid.Column="4" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.1*"/>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="3"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="3"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="1"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="3"/>
         </Grid>
         <!--Workplace Input-->
-        <Grid Grid.Column="1" Grid.Row="4"  ShowGridLines="True" MinWidth="200">
+        <Grid Grid.Column="2" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -83,7 +90,7 @@
             <TextBox Text="{Binding Search.WorkplaceInput.SearchLocation}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         </Grid>
         <!--Workplace Time Input-->
-        <Grid Grid.Column="2" Grid.Row="4">
+        <Grid Grid.Column="3" Grid.Row="4">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -92,7 +99,7 @@
             <TextBox Text="{Binding Search.WorkplaceInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
         </Grid>
         <!--Hometown Input-->
-        <Grid Grid.Column="1" Grid.Row="2">
+        <Grid Grid.Column="2" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -104,7 +111,7 @@
 
         </Grid>
         <!--Hometown Time Input-->
-        <Grid Grid.Column="2" Grid.Row="2">
+        <Grid Grid.Column="3" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -113,15 +120,98 @@
             <TextBox Text="{Binding Search.HometownInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
         </Grid>
 
-        <Button x:Name="update" Content="Aktualisieren" Grid.Column="3" Grid.Row="1"/>
-        <Grid Grid.Column="1" Grid.Row="2" Grid.RowSpan="3">
+        
+        <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.15*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="SaveAndCall" Click="SaveAndCall_Click"  Content="Speichern &amp; Abrufen" Grid.Row="1"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            
+            <Border Background="MediumSlateBlue" CornerRadius="5" Grid.Column="1" Grid.Row="1"/>
+            <Viewbox Grid.Row="1" Grid.Column="1" Panel.ZIndex="2" >
+                <Button x:Name="SaveAndCall" Click="SaveAndCall_Click"  Content="Speichern &amp; Abrufen" Background="Transparent" Panel.ZIndex="1" BorderThickness="0" Foreground="Azure"  />
+                
+            </Viewbox>
+           
         </Grid>
-       
+
+        <!--right top head-->
+        <Grid  Grid.Column="4"  Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="2" Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+
+
+                
+                
+                
+                
+
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.05*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.05*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.15*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.15*"/>
+
+                    </Grid.RowDefinitions>
+
+
+
+                    <Border Background="navy" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" CornerRadius="6" Panel.ZIndex="1" BorderBrush="Azure" BorderThickness="1" />
+
+
+                    <Border Background="Navy" Grid.Column="0" Grid.Row="0" Grid.RowSpan="5" Grid.ColumnSpan="5" CornerRadius="8"  />
+
+                    <Viewbox Grid.Column="2" Grid.Row="2" Panel.ZIndex="2">
+                        <Button Foreground="Azure" Panel.ZIndex="2" Background="Transparent"  BorderThickness="0" >
+                            <TextBlock Text="Aktualisieren" FontSize="60">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" Opacity="0.7" />
+                                </TextBlock.Effect>
+                            </TextBlock>
+                        </Button>
+                    </Viewbox>
+
+
+                </Grid>
+            </Grid>
+           
+        </Grid>
+        
+
+
+        <!--Main panels for hometown and workplace-->
+        <Border Background="Navy" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Panel.ZIndex="-2" CornerRadius="10" />
+        <Border Background="Navy" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Panel.ZIndex="-2" CornerRadius="10" />
     </Grid>
 </Window>

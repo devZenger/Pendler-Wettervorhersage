@@ -23,18 +23,18 @@ namespace Pendler_Wettervorhersage
     
             ForecastDataProcess forecastDataProcess = new ForecastDataProcess();
 
-            List<ForecastData> hometownForecastProcessd = new List<ForecastData>();
+            List<ForecastReport> hometownForecastProcessd = new List<ForecastReport>();
             
-            List<ForecastData> workplaceForecastProcessed = new List<ForecastData>();
+            List<ForecastReport> workplaceForecastProcessed = new List<ForecastReport>();
 
             hometownForecastProcessd.AddRange(forecastDataProcess.GetProcess(hometownForecastRaw, hometown));
 
             workplaceForecastProcessed = forecastDataProcess.GetProcess(workplaceForecastRaw, workplace);
 
-            workplaceForecastProcessed[0].Forecast.Time;
+            
 
 
-            _mainViewModel.HometownPanels[0].TitleDay = hometownForecastProcessd[0].Forecast.Time;
+            //_mainViewModel.HometownPanels[0].TitleDay = hometownForecastProcessd[0].Forecast.Time;
 
            
 

@@ -5,9 +5,9 @@ namespace Pendler_Wettervorhersage
     internal class ForecastDataProcess
     {
 
-        public List<ForecastData> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
+        public List<ForecastReport> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
         {
-            List<ForecastData> forecastInfosForPanels = new List<ForecastData>();
+            List<ForecastReport> forecastInfosForPanels = new List<ForecastReport>();
   
             for (int i = 0; i < 3;)
             {
@@ -18,31 +18,31 @@ namespace Pendler_Wettervorhersage
         }
 
 
-        internal ForecastData SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
+        internal ForecastReport SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
         {
             int[] time = TimeToInt(timeString);
 
-            ForecastData.ForecastReport forecastReport = new ForecastData.ForecastReport();
+            ForecastReport forecastReport = new ForecastReport();
 
             
 
 
-            forecastReport.Time = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
+            forecastReport.TitleDay = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
             decimal temp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].TempC;
             decimal tempOneHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0] + 1].TempC;
             decimal tempAtMoment = ValueAtMinutes(temp, tempOneHourLater, time[1]);
-            forecastReport.TempC = tempAtMoment.ToString("F1") + "°C";
-            forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
-            forecastReport.Icon = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
+            forecastReport.TemperaturC = tempAtMoment.ToString("F1") + "°C";
+            //forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
+            //forecastReport. = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
 
 
 
 
 
 
-            ForecastData forecastData = new ForecastData(forecastReport);
+       
 
-            return forecastData;
+            return forecastReport;
         }
 
         public int[] TimeToInt(string timeInput)
