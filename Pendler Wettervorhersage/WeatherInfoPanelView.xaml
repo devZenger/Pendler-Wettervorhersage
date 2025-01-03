@@ -7,7 +7,7 @@
               xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
              
              xmlns:local="clr-namespace:Pendler_Wettervorhersage"
-             MinHeight="100" MinWidth="100"
+             
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -29,7 +29,7 @@
             <RowDefinition Height="0.1*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border Grid.ColumnSpan="5" Grid.RowSpan="9" Background="Azure" BorderThickness="1" CornerRadius="10" BorderBrush="Gray" Padding="10"></Border>
+        <Border Grid.ColumnSpan="5" Grid.RowSpan="9" Background="#FFE3E3FF" BorderThickness="1" CornerRadius="10" BorderBrush="#FF101047" Padding="10"></Border>
 
         <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             <TextBlock Text="{Binding TitleDay}" FontWeight="Bold"/>

@@ -9,28 +9,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="800"  >
     
-    <Grid Background="RoyalBlue">
+    <Grid Background="#FF4747D4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition Width=".1*"/>
             <ColumnDefinition x:Name="SeachInputColumn"  Width="3*"/>
-            <ColumnDefinition Width="0.6*"/>
+            <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="0.2*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.05*"></RowDefinition>
-            <RowDefinition></RowDefinition>
             <RowDefinition Height="0.05*"/>
-
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="0.05*"></RowDefinition>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
-        
+
+
+        <!--Hometown Time Input-->
+        <local:SearchInputPanel Grid.Column="2" Grid.Row="5"/>
        
         <!--WeatherInfopanels Hometown-->
-        <Grid Grid.Column="4" Grid.Row="2">
+        <Grid Grid.Column="4" Grid.Row="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.1*"/>
@@ -40,88 +48,62 @@
                 <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
-                <RowDefinition Height="0.05*"/>
             </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="3"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="3"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="3"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="2"/>
         </Grid>
-        <!--WeatherInfopanels Workplace-->
-        <Grid Grid.Column="4" Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="0.05*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.05*"/>
-                <RowDefinition/>
-                <RowDefinition Height="0.05*"/>
-                <RowDefinition/>
-                <RowDefinition Height="0.05*"/>
-            </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="3"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="3"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="1"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="3"/>
-        </Grid>
+        
         <!--Workplace Input-->
-        <Grid Grid.Column="2" Grid.Row="4">
+        <local:SearchInputPanel Grid.Column="2" Grid.Row="9"/>
+        <!--WeatherInfopanels Workplace-->
+        <Grid Grid.Column="4" Grid.Row="9">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.05*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBox Text="{Binding Search.WorkplaceInput.SearchLocation}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="2"/>
         </Grid>
-        <!--Workplace Time Input-->
-        <Grid Grid.Column="3" Grid.Row="4">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBox Text="{Binding Search.WorkplaceInput.StartTime}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
-            <TextBox Text="{Binding Search.WorkplaceInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
-        </Grid>
-        <!--Hometown Input-->
-        <Grid Grid.Column="2" Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-               
-                <RowDefinition/>
-            </Grid.RowDefinitions>
 
-            <TextBox Text="{Binding Search.HometownInput.SearchLocation}" Grid.Column="0" Grid.Row="1" TextWrapping="Wrap" Width="200" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" TextAlignment="Center"/>
-
-        </Grid>
-        <!--Hometown Time Input-->
-        <Grid Grid.Column="3" Grid.Row="2">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <TextBox Text="{Binding Search.HometownInput.StartTime}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" MaxLength="5"/>
-            <TextBox Text="{Binding Search.HometownInput.EndTime}" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14"/>
+        <Grid Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton Content="Einklappen" Grid.Column="0" Grid.Row="0"/>
         </Grid>
 
         
-        <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="3">
+
+
+
+
+
+
+
+
+
+        <Grid Grid.Column="2" Grid.Row="3" Grid.RowSpan="9">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="0.15*"/>
@@ -132,8 +114,7 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
-            
+
             <Border Background="MediumSlateBlue" CornerRadius="5" Grid.Column="1" Grid.Row="1"/>
             <Viewbox Grid.Row="1" Grid.Column="1" Panel.ZIndex="2" >
                 <Button x:Name="SaveAndCall" Click="SaveAndCall_Click"  Content="Speichern &amp; Abrufen" Background="Transparent" Panel.ZIndex="1" BorderThickness="0" Foreground="Azure"  />
@@ -143,7 +124,7 @@
         </Grid>
 
         <!--right top head-->
-        <Grid  Grid.Column="4"  Grid.Row="1">
+        <Grid  Grid.Column="4"  Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -211,7 +192,7 @@
 
 
         <!--Main panels for hometown and workplace-->
-        <Border Background="Navy" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="4" Panel.ZIndex="-2" CornerRadius="10" />
-        <Border Background="Navy" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Panel.ZIndex="-2" CornerRadius="10" />
+        <Border Background="Navy" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Grid.RowSpan="3" Panel.ZIndex="-2" CornerRadius="10" />
+        <Border Background="Navy" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="4" Grid.RowSpan="3" Panel.ZIndex="-2" CornerRadius="10" />
     </Grid>
 </Window>

@@ -16,17 +16,18 @@ using System.Windows.Shapes;
 namespace Pendler_Wettervorhersage
 {
     /// <summary>
-    /// Interaktionslogik für WeatherInfoPanelView.xaml
+    /// Interaktionslogik für SearchInputPanel.xaml
     /// </summary>
-    public partial class WeatherInfoPanelView : UserControl
+    public partial class SearchInputPanel : UserControl
     {
-        public WeatherInfoPanelView()
+        public SearchInputPanel()
         {
             InitializeComponent();
-
-
-
         }
 
+        private void LocationTextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            LocationInput.Text = string.Empty;
+        }
     }
 }
