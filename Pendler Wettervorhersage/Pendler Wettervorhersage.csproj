@@ -11,6 +11,23 @@
 
   <ItemGroup>
     <None Remove="Icons\Day\1.svg" />
+    <None Remove="Icons\Weather\clear-day.svg" />
+    <None Remove="Icons\Weather\fog-day.svg" />
+    <None Remove="Icons\Weather\haze-day.svg" />
+    <None Remove="Icons\Weather\overcast-day.svg" />
+    <None Remove="Icons\Weather\overcast.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day-drizzle.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day-hail.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day-rain.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day-sleet.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day-snow.svg" />
+    <None Remove="Icons\Weather\partly-cloudy-day.svg" />
+    <None Remove="Icons\Weather\rain.svg" />
+    <None Remove="Icons\Weather\sleet.svg" />
+    <None Remove="Icons\Weather\snow.svg" />
+    <None Remove="Icons\Weather\thunderstorms-day-rain.svg" />
+    <None Remove="Icons\Weather\thunderstorms-day-snow.svg" />
+    <None Remove="Icons\Weather\thunderstorms-day.svg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +37,23 @@
 
   <ItemGroup>
     <Resource Include="Icons\Day\1.svg" />
+    <Resource Include="Icons\Weather\clear-day.svg" />
+    <Resource Include="Icons\Weather\fog-day.svg" />
+    <Resource Include="Icons\Weather\haze-day.svg" />
+    <Resource Include="Icons\Weather\overcast-day.svg" />
+    <Resource Include="Icons\Weather\overcast.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day-drizzle.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day-hail.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day-rain.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day-sleet.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day-snow.svg" />
+    <Resource Include="Icons\Weather\partly-cloudy-day.svg" />
+    <Resource Include="Icons\Weather\rain.svg" />
+    <Resource Include="Icons\Weather\sleet.svg" />
+    <Resource Include="Icons\Weather\snow.svg" />
+    <Resource Include="Icons\Weather\thunderstorms-day-rain.svg" />
+    <Resource Include="Icons\Weather\thunderstorms-day-snow.svg" />
+    <Resource Include="Icons\Weather\thunderstorms-day.svg" />
   </ItemGroup>
 
   <ItemGroup>

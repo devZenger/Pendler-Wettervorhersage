@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Pendler_Wettervorhersage.Service;
+using System.Collections.Generic;
 
 namespace Pendler_Wettervorhersage
 {
@@ -58,6 +59,14 @@ namespace Pendler_Wettervorhersage
             decimal feelTemp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].FeelsLikeC;
             decimal feelTempHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].FeelsLikeC;
             forecastReport.FeelsLikeTempC = $"{ValueAtMinutes(feelTemp, feelTempHourLater, time[1])} °C";
+
+
+            WeatherIconsPath iconPath = new WeatherIconsPath();
+            int code = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code;
+            Console.WriteLine(code);
+            string test = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code);
+            forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code);
+            Console.WriteLine(forecastReport.IconPath);
 
 
             //forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;

@@ -46,6 +46,6 @@
         <Viewbox Grid.Row="7" Grid.Column="1">
             <TextBlock Text="{Binding AddtionalInformation}"/>
         </Viewbox>
-        <svgc:SvgViewbox Source="/Icons/Day/1.svg" Grid.Column="1" Grid.Row="3" Grid.RowSpan="4" Width="50" Height="50"/>
+        <svgc:SvgViewbox Source="{Binding IconPath}" Grid.Column="1" Grid.Row="3" Grid.RowSpan="4" Width="50" Height="50"/>
     </Grid>
 </UserControl>

@@ -59,6 +59,22 @@
             }
         }
 
+
+        private string _iconPath = string.Empty;
+
+        public string IconPath
+        {
+            get => _iconPath;
+            set
+            {
+                if (_iconPath != value) ;
+                {
+                    _iconPath = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
         private string _addtionalInformation = "Wind aus Norden";
 
         public string AddtionalInformation
