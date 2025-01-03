@@ -43,15 +43,17 @@
                 }
             }
         }
-        private string _windChillTempC = "-5,2°C";
-        public string WindChillTempC
+
+        
+        private string _feelsLikeTempC = "-5,2°C";
+        public string FeelsLikeTempC
         {
-            get => _windChillTempC;
+            get => _feelsLikeTempC;
             set
             {
-                if (_windChillTempC != value) ;
+                if (_feelsLikeTempC != value) ;
                 {
-                    _windChillTempC = value;
+                    _feelsLikeTempC = value;
                     OnPropertyChanged();
                 }
             }
@@ -79,7 +81,7 @@
             _titleDay = title;
             _apiWeatherDiscription = discription;
             _temperaturC = tempC;
-            _windChillTempC = windChillC;
+          
             _addtionalInformation = addInformation;
 
             OnPropertyChanged();

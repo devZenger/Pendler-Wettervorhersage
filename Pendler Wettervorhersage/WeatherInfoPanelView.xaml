@@ -40,7 +40,7 @@
         <Viewbox Grid.Row="4" Grid.Column="2" Grid.RowSpan="2">
             <StackPanel>
                 <TextBlock Text="{Binding TemperaturC}"/>
-                <TextBlock Text="{Binding WindChillTempC}"/>
+                <TextBlock Text="{Binding FeelsLikeTempC}"/>
             </StackPanel>
         </Viewbox>
         <Viewbox Grid.Row="7" Grid.Column="1">
