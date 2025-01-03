@@ -17,21 +17,25 @@ namespace Pendler_Wettervorhersage
 
         public void MainProcess(SearchParameter hometown, SearchParameter workplace)
         {
-            WeatherApiResponse hometownForecastRaw = getWeather(hometown.SearchLocation);
             
+            
+            WeatherApiResponse hometownForecastRaw = getWeather(hometown.SearchLocation);
             WeatherApiResponse workplaceForecastRaw = getWeather(workplace.SearchLocation);
     
+
             ForecastDataProcess forecastDataProcess = new ForecastDataProcess();
 
             List<ForecastReport> hometownForecastProcessd = new List<ForecastReport>();
-            
             List<ForecastReport> workplaceForecastProcessed = new List<ForecastReport>();
+
 
             hometownForecastProcessd.AddRange(forecastDataProcess.GetProcess(hometownForecastRaw, hometown));
 
-            workplaceForecastProcessed = forecastDataProcess.GetProcess(workplaceForecastRaw, workplace);
+            workplaceForecastProcessed.AddRange(forecastDataProcess.GetProcess(workplaceForecastRaw, workplace));
 
             
+            _mainViewModel.UpdateHometownForecast(hometownForecastProcessd);
+            _mainViewModel.UpdateWorkplaceForecast(workplaceForecastProcessed);
 
 
             //_mainViewModel.HometownPanels[0].TitleDay = hometownForecastProcessd[0].Forecast.Time;

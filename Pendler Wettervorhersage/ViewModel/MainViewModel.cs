@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
 
@@ -6,8 +7,9 @@ namespace Pendler_Wettervorhersage
 {
     internal class MainViewModel : NotifyPropertyChangedBase
     {
-        public ForecastReport[] HometownPanels { get; set; } = new ForecastReport[6];
-        public ForecastReport[] WorkplacePanels { get; set; } = new ForecastReport[6];
+        
+        public ObservableCollection<ForecastReport> HometownPanels { get; set; } // = new ForecastReport[6];
+        public ObservableCollection<ForecastReport> WorkplacePanels { get; set; } // = new ForecastReport[6];
 
         private SearchInput _search;
         public SearchInput Search
@@ -26,14 +28,18 @@ namespace Pendler_Wettervorhersage
         
         public MainViewModel()
         {
-            for (int i = 0; i < WorkplacePanels.Length; i++)
+            HometownPanels = new ObservableCollection<ForecastReport>();
+            WorkplacePanels = new ObservableCollection<ForecastReport>();
+            for (int i = 0; i < 6; i++)
             {
-                HometownPanels[i] = new ForecastReport();
-                WorkplacePanels[i] = new ForecastReport(); 
+                HometownPanels.Add(new ForecastReport());
+                WorkplacePanels.Add(new ForecastReport());
+               
             }
 
             Search = new SearchInput();
         }
+
 
         public void Errormessage(ErrorMessages messageErrors)
         {
@@ -47,7 +53,28 @@ namespace Pendler_Wettervorhersage
 
             MessageBox.Show($"{messageErrors.MessageErrors[messageNumber].Message}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+
+        public void UpdateHometownForecast(List<ForecastReport> forecastReports)
+        {
+            HometownPanels.Clear();
+            foreach(ForecastReport forecastReport in forecastReports) 
+            {
+                HometownPanels.Add(forecastReport);
+            }
+        }
+
+        public void UpdateWorkplaceForecast(List<ForecastReport> forecastReports)
+        {
+            WorkplacePanels.Clear();
+            foreach (ForecastReport forecastReport in forecastReports)
+            {
+                WorkplacePanels.Add(forecastReport);
+            }
+        }
+
         
+
 
 
 

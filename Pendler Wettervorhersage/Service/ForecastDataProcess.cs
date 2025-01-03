@@ -7,31 +7,42 @@ namespace Pendler_Wettervorhersage
 
         public List<ForecastReport> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
         {
-            List<ForecastReport> forecastInfosForPanels = new List<ForecastReport>();
+            List<ForecastReport> forecastReportForPanels = new List<ForecastReport>();
   
-            for (int i = 0; i < 3;)
+            for (int i = 0; i < 3; i++)
             {
-                forecastInfosForPanels.Add(SingleDayForecast(rawForecastData, searchInput.StartTime, i));
-                forecastInfosForPanels.Add(SingleDayForecast(rawForecastData, searchInput.EndTime, i));
+                forecastReportForPanels.Add(SingleDayForecast(rawForecastData, searchInput.StartTime, i));
+                forecastReportForPanels.Add(SingleDayForecast(rawForecastData, searchInput.EndTime, i));
             }
-            return forecastInfosForPanels;
+            return forecastReportForPanels;
         }
 
 
         internal ForecastReport SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
         {
-            int[] time = TimeToInt(timeString);
+            //int[] time = TimeToInt(timeString);
 
             ForecastReport forecastReport = new ForecastReport();
 
-            
 
 
-            forecastReport.TitleDay = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
-            decimal temp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].TempC;
-            decimal tempOneHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0] + 1].TempC;
-            decimal tempAtMoment = ValueAtMinutes(temp, tempOneHourLater, time[1]);
-            forecastReport.TemperaturC = tempAtMoment.ToString("F1") + "°C";
+
+            forecastReport.TitleDay = "angekommen";
+            forecastReport.ApiWeatherDiscription = "sonnig";
+            forecastReport.TemperaturC = "5°C";
+            forecastReport.WindChillTempC = "7°";
+            forecastReport.AddtionalInformation = "geh baden";
+
+
+
+
+
+
+            //forecastReport.TitleDay = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Time;
+            //decimal temp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].TempC;
+            //decimal tempOneHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0] + 1].TempC;
+            //decimal tempAtMoment = ValueAtMinutes(temp, tempOneHourLater, time[1]);
+            //forecastReport.TemperaturC = tempAtMoment.ToString("F1") + "°C";
             //forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
             //forecastReport. = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
 

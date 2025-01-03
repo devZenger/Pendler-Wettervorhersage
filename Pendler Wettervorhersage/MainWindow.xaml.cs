@@ -9,8 +9,8 @@ namespace Pendler_Wettervorhersage
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly SearchParameter _hometownInput = new SearchParameter();
-        private readonly SearchParameter _workplaceInput = new SearchParameter();
+        private SearchParameter _hometownInput = new SearchParameter();
+        private SearchParameter _workplaceInput = new SearchParameter();
 
         public MainWindow()
         {
@@ -30,9 +30,11 @@ namespace Pendler_Wettervorhersage
         {
             MainViewModel viewModel = (MainViewModel)DataContext;
 
-            _hometownInput.SearchLocation = viewModel.Search.HometownInput.SearchLocation;
-            _hometownInput.StartTime = viewModel.Search.HometownInput.StartTime;
-            _hometownInput.EndTime = viewModel.Search.HometownInput.EndTime;
+            _hometownInput = viewModel.Search.HometownInput;
+
+            //_hometownInput.SearchLocation = viewModel.Search.HometownInput.SearchLocation;
+            //_hometownInput.StartTime = viewModel.Search.HometownInput.StartTime;
+            //_hometownInput.EndTime = viewModel.Search.HometownInput.EndTime;
 
             _workplaceInput.SearchLocation = viewModel.Search.WorkplaceInput.SearchLocation;
             _workplaceInput.StartTime = viewModel.Search.WorkplaceInput.StartTime;
@@ -41,8 +43,12 @@ namespace Pendler_Wettervorhersage
 
             SearchInputProcress input = new SearchInputProcress();
 
+
             input.CheckSearchInput(_hometownInput, _workplaceInput);
 
+            GetWeatherForecast getForecast = new GetWeatherForecast(viewModel);
+
+            getForecast.MainProcess(_hometownInput, _workplaceInput);
 
         }
 
