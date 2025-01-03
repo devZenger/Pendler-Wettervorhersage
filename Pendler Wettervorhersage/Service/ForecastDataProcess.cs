@@ -50,24 +50,22 @@ namespace Pendler_Wettervorhersage
                 forecastReport.TitleDay = formattedDate;
             }
 
-      
+            // Temperatur
             decimal temp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].TempC;      
             decimal tempOneHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0] + 1].TempC;
             forecastReport.TemperaturC = $"{ValueAtMinutes(temp, tempOneHourLater, time[1])} °C";
 
-
+            // Feelslike Temperatur
             decimal feelTemp = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].FeelsLikeC;
             decimal feelTempHourLater = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].FeelsLikeC;
             forecastReport.FeelsLikeTempC = $"{ValueAtMinutes(feelTemp, feelTempHourLater, time[1])} °C";
 
-
+            //Icon 
             WeatherIconsPath iconPath = new WeatherIconsPath();
-            int code = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code;
-            Console.WriteLine(code);
-            string test = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code);
             forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code);
-            Console.WriteLine(forecastReport.IconPath);
 
+            //Api discription
+            forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
 
             //forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
             //forecastReport. = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
