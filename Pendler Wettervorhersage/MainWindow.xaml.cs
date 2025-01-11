@@ -52,9 +52,7 @@ namespace Pendler_Wettervorhersage
 
         }
 
-
-
-
+       
     }
 
 }

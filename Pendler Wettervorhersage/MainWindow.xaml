@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
         Title="Pendler Wettervorhersage" Height="550" Width="800">
+       
     <Window.Resources>
         <!--Style for dark blue buttons-->
         <Style x:Key="DarkBlueButton" TargetType="Button">
@@ -50,7 +51,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition Width="0.1*"/>
-            <ColumnDefinition x:Name="SeachInputColumn"  Width="3*"/>
+            <ColumnDefinition x:Name="SeachInputColumn"  Width="{Binding ColumWidth}"/>
             <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="0.1*"/>
@@ -159,9 +160,11 @@
             <Button Grid.Column="0" Content="Infos" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
             <Button Grid.Column="2" Content="Aktualisieren" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
         </Grid>
+        
+        
         <!-- Expander -->
-        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2">
-            <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30">
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Left">
+            <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30" Command="{Binding Expander}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" >
                 <ToggleButton.Style>
                 <Style TargetType="ToggleButton">
                     <Setter Property="Template">
@@ -190,6 +193,7 @@
                     <Style.Triggers>
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Content" Value="Ausklappen"/>
+                                
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter Property="Content" Value="Einklappen"/>
@@ -197,6 +201,8 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Background" Value="#876213"/>
                             </Trigger>
+                  
+                            
                             
                     </Style.Triggers>
                 </Style>

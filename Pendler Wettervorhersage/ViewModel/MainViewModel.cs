@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace Pendler_Wettervorhersage
 {
     internal class MainViewModel : NotifyPropertyChangedBase
     {
-        
+
         public ObservableCollection<ForecastReport> HometownPanels { get; set; } // = new ForecastReport[6];
         public ObservableCollection<ForecastReport> WorkplacePanels { get; set; } // = new ForecastReport[6];
 
@@ -25,7 +23,7 @@ namespace Pendler_Wettervorhersage
             }
         }
 
-        
+
         public MainViewModel()
         {
             HometownPanels = new ObservableCollection<ForecastReport>();
@@ -34,10 +32,12 @@ namespace Pendler_Wettervorhersage
             {
                 HometownPanels.Add(new ForecastReport());
                 WorkplacePanels.Add(new ForecastReport());
-               
+
             }
 
             Search = new SearchInput();
+
+            Expander = new DelegateCommand<bool?>(UseExpander);
         }
 
 
@@ -45,10 +45,10 @@ namespace Pendler_Wettervorhersage
         {
             int messageNumber;
 
-            for (messageNumber = 0; messageNumber < messageErrors.MessageErrors.Count; messageNumber++) 
+            for (messageNumber = 0; messageNumber < messageErrors.MessageErrors.Count; messageNumber++)
             {
                 if (messageErrors.MessageErrors[messageNumber].IsError == true)
-                   break;
+                    break;
             }
 
             MessageBox.Show($"{messageErrors.MessageErrors[messageNumber].Message}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -58,7 +58,7 @@ namespace Pendler_Wettervorhersage
         public void UpdateHometownForecast(List<ForecastReport> forecastReports)
         {
             HometownPanels.Clear();
-            foreach(ForecastReport forecastReport in forecastReports) 
+            foreach (ForecastReport forecastReport in forecastReports)
             {
                 HometownPanels.Add(forecastReport);
             }
@@ -73,7 +73,29 @@ namespace Pendler_Wettervorhersage
             }
         }
 
-        
+
+
+
+        //Expander 
+        private int _columWidth = 200;
+        public int ColumWidth
+        {
+            get => _columWidth;
+            set { if (_columWidth != value) { _columWidth = value; OnPropertyChanged(); } }
+        }
+        public DelegateCommand<bool?> Expander { get;}
+
+        public void UseExpander(bool? status)
+        {
+            if (status.HasValue)
+                if (status == true)
+                    ColumWidth = 0;
+
+            else ColumWidth = 200;
+
+
+        }
+
 
 
 
