@@ -20,7 +20,7 @@
             <RowDefinition Height="0.2*"/>
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
-        <Border Background="#FF8E8EFF" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="5" CornerRadius="10">
+        <Border Background="#A3C5FF" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="5" CornerRadius="10">
             <Border.Effect>
                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
             </Border.Effect>
