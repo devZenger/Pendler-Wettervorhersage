@@ -26,16 +26,11 @@ namespace Pendler_Wettervorhersage
 
             ForecastReport forecastReport = new ForecastReport();
 
-
-
-
             forecastReport.TitleDay = "angekommen";
             forecastReport.ApiWeatherDiscription = "sonnig";
             forecastReport.TemperaturC = "5°C";
             forecastReport.FeelsLikeTempC = "7°";
             forecastReport.AddtionalInformation = "geh baden";
-
-
 
 
             if (day == 0) 
@@ -66,13 +61,6 @@ namespace Pendler_Wettervorhersage
 
             //Api discription
             forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
-
-            //forecastReport.Discription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
-            //forecastReport. = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Icon;
-
-
-
-
 
 
 

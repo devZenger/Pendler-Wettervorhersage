@@ -15,14 +15,12 @@ namespace Pendler_Wettervorhersage
             if (germany)
                 searchLocation = $"{searchLocation}, Germany";
 
-
             string apiKey = Properties.Settings.Default.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";
 
             string days = "3";
-            //string hours = "6";
-
-            string requestUrl = $"{urlStart}{apiKey}&q={searchLocation}&days={days}&lang=de&aqi=no&alerts=no"; //&hour={hours}
+       
+            string requestUrl = $"{urlStart}{apiKey}&q={searchLocation}&days={days}&lang=de&aqi=no&alerts=no";
 
             HttpClient httpClient = new HttpClient();
 
@@ -30,12 +28,9 @@ namespace Pendler_Wettervorhersage
 
             string responseWeatherApi = httpResponseWeatherApi.Content.ReadAsStringAsync().Result;
 
-            //Console.WriteLine(responseWeatherApi);
-
             WeatherApiResponse? weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
 
             return weatherApiRespone;
-
 
         }
     }

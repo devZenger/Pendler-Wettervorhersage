@@ -10,7 +10,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Icons\Day\1.svg" />
     <None Remove="Icons\Weather\clear-day.svg" />
     <None Remove="Icons\Weather\fog-day.svg" />
     <None Remove="Icons\Weather\haze-day.svg" />
@@ -36,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Icons\Day\1.svg" />
     <Resource Include="Icons\Weather\clear-day.svg" />
     <Resource Include="Icons\Weather\fog-day.svg" />
     <Resource Include="Icons\Weather\haze-day.svg" />
