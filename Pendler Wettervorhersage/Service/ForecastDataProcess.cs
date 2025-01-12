@@ -62,7 +62,11 @@ namespace Pendler_Wettervorhersage
             //Api discription
             forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
 
-
+           
+            //Location
+            forecastReport.Name = $"Name: {rawForecastData.Location.Name}";
+            forecastReport.Region = $"Region: {rawForecastData.Location.Region}";
+            forecastReport.Country = $"Country: {rawForecastData.Location.Country}";
 
 
             return forecastReport;

@@ -6,6 +6,46 @@
              xmlns:local="clr-namespace:Pendler_Wettervorhersage"
              mc:Ignorable="d" 
              d:DesignHeight="210" d:DesignWidth="260">
+    <UserControl.Resources>
+       
+        <Style x:Key="TimeInput" TargetType="TextBox">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="Width" Value="45"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="#FFE3E3FF" BorderBrush="DarkSlateGray" BorderThickness="1" CornerRadius="8" >
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
+                            </Border.Effect>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LocationInput" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="#FFE3E3FF" BorderBrush="DarkSlateGray" BorderThickness="1" CornerRadius="8" >
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
+                            </Border.Effect>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"/>
@@ -15,60 +55,35 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
-            <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.7*"/>
-            <RowDefinition Height="0.2*"/>
+        
+            <RowDefinition Height="0.9*"/>
+          
             <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
+        <!--Background Border-->
         <Border Background="#A3C5FF" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Grid.RowSpan="5" CornerRadius="10">
             <Border.Effect>
                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
             </Border.Effect>
         </Border>
+        <!--Search Location-->
 
-        <Border Background="#FFE3E3FF" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" CornerRadius="8" BorderBrush="DarkSlateGray" BorderThickness="1">
-            <Border.Effect>
-                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
-            </Border.Effect>
-        </Border>
-        <TextBox Name="LocationInput" Text="{Binding SearchLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderThickness="0" GotFocus="LocationTextBox_GotFocus" FontWeight="Bold" Margin="0,1,0,1"/>
-
-        <Grid Grid.Column="2" Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.9*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Border Background="#FFE3E3FF" Grid.Column="1" Grid.Row="1" CornerRadius="5" BorderBrush="DarkSlateGray" BorderThickness="0.6">
-                <Border.Effect>
-                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
-                </Border.Effect>
-            </Border>
-            <TextBox Name="TimeUpInput" Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
-        </Grid>
-        <Grid Grid.Column="2" Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.5*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="0.9*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Border Background="#FFE3E3FF" Grid.Column="1" Grid.Row="1" CornerRadius="5" BorderBrush="DarkSlateGray" BorderThickness="0.6">
-                <Border.Effect>
-                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
-                </Border.Effect>
-            </Border>
-            <TextBox Name="TimeDownInput" Text="{Binding EndTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
-        </Grid>
-        <Expander Header="Api Standort Antwort" FontSize="8" Grid.Column="1" Grid.Row="4">
-            <TextBlock Text="Dies ist der Text, der angezeigt wird, wenn man auf den Expander klickt." />
+            <TextBox Style="{StaticResource LocationInput}" Text="{Binding SearchLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        
+        <!--Start Time-->         
+            <TextBox Style="{StaticResource TimeInput}" Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="1,1,1,1"/>
+        
+        <!--End Time-->
+            <TextBox Style="{StaticResource TimeInput}" Text="{Binding EndTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="1,1,1,1"/>
+       
+        
+        <Expander Header="Api Standort Antwort" FontSize="8" Grid.Column="1" Grid.Row="2">
+            <StackPanel>
+                <TextBlock Text="{Binding Name}"/>
+                <TextBlock Text="{Binding Region}"/>
+                <TextBlock Text="{Binding Country}"/>
+            </StackPanel>
+            
         </Expander>
     </Grid>
 </UserControl>

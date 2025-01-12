@@ -54,7 +54,56 @@ namespace Pendler_Wettervorhersage
             }
         }
 
-       
+
+        // Location
+        private string _name = string.Empty;
+        public string Name
+        {
+            get => _name;
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _region = string.Empty;
+        public string Region
+        {
+            get => _region;
+            set
+            {
+                if (_region != value)
+                {
+                    _region = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+        private string _country = string.Empty;
+        public string Country
+        {
+            get => _country;
+            set
+            {
+                if (_country != value)
+                {
+                    _country = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+
+
+
+
+
 
 
 

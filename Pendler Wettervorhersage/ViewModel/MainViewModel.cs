@@ -174,6 +174,10 @@ namespace Pendler_Wettervorhersage
                 HometownPanels.Add(forecastReport);
             }
 
+            HometownInput.Name = forecastReports[0].Name;
+            HometownInput.Region = forecastReports[0].Region;
+            HometownInput.Country = forecastReports[0].Country;
+
             // Workplace part
             forecastReports.Clear();
 
@@ -184,6 +188,9 @@ namespace Pendler_Wettervorhersage
             {
                 WorkplacePanels.Add(forecastReport);
             }
+            WorkplaceInput.Name = forecastReports[0].Name;
+            WorkplaceInput.Region = forecastReports[0].Region;
+            WorkplaceInput.Country = forecastReports[0].Country;
 
 
         }

@@ -10,6 +10,11 @@ namespace Pendler_Wettervorhersage
     internal class Location
     {
         [JsonProperty("name")]
-        string Name { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
+        [JsonProperty("region")]
+        public  string Region { get; set; } = string.Empty;
+        [JsonProperty("country")]
+        public string Country { get; set; } = string.Empty;
+
     }
 }
