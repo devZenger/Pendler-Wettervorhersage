@@ -8,17 +8,11 @@ namespace Pendler_Wettervorhersage
 {
     internal class GetWeatherForecast
     {
-        private MainViewModel _mainViewModel;
-
-        public GetWeatherForecast(MainViewModel mainViewModel)
-        {
-            _mainViewModel = mainViewModel;
-        }
-
+        //private MainViewModel _mainViewModel;
+        /*
         public void MainProcess(SearchParameter hometown, SearchParameter workplace)
         {
-            
-            
+
             WeatherApiResponse hometownForecastRaw = getWeather(hometown.SearchLocation);
             WeatherApiResponse workplaceForecastRaw = getWeather(workplace.SearchLocation);
     
@@ -34,14 +28,8 @@ namespace Pendler_Wettervorhersage
             workplaceForecastProcessed.AddRange(forecastDataProcess.GetProcess(workplaceForecastRaw, workplace));
 
             
-            _mainViewModel.UpdateHometownForecast(hometownForecastProcessd);
-            _mainViewModel.UpdateWorkplaceForecast(workplaceForecastProcessed);
-
-
-            //_mainViewModel.HometownPanels[0].TitleDay = hometownForecastProcessd[0].Forecast.Time;
-
-           
-
+            //_mainViewModel.UpdateHometownForecast(hometownForecastProcessd);
+            //_mainViewModel.UpdateWorkplaceForecast(workplaceForecastProcessed);
 
         }
 
@@ -51,5 +39,27 @@ namespace Pendler_Wettervorhersage
 
             return weatherResponse.UseWeatherApi(searchLoaction);
         }
+
+        */
+
+
+        public List<ForecastReport> Process(SearchParameter searchParameter, bool germany)
+        {
+            ApiWeatherForcastService weatherResponse = new ApiWeatherForcastService();
+
+           
+
+            WeatherApiResponse forecastRaw = weatherResponse.UseWeatherApi(searchParameter.SearchLocation, germany);
+
+            ForecastDataProcess forecastDataProcess = new ForecastDataProcess();
+
+            List<ForecastReport> forecastProcessed = new List<ForecastReport>();
+
+            forecastProcessed.AddRange(forecastDataProcess.GetProcess(forecastRaw, searchParameter));
+
+            return forecastProcessed;
+        }
+
+
     }
 }

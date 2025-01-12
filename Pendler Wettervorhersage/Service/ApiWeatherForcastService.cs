@@ -10,8 +10,12 @@ namespace Pendler_Wettervorhersage
 {
     internal class ApiWeatherForcastService
     {
-        public WeatherApiResponse UseWeatherApi(string searchLocation)
+        public WeatherApiResponse UseWeatherApi(string searchLocation, bool germany)
         {
+            if (germany)
+                searchLocation = $"{searchLocation}, Germany";
+
+
             string apiKey = Properties.Settings.Default.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";
 

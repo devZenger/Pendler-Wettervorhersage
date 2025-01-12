@@ -10,11 +10,11 @@ namespace Pendler_Wettervorhersage
 
         public SearchInput()
         {
-            HometownInput = new SearchParameter();
+            //HometownInput = new SearchParameter();
 
-            HometownInput.SearchLocation = "Ort eingeben";
-            HometownInput.StartTime = "7:00";
-            HometownInput.EndTime = "18:00";
+            //HometownInput.SearchLocation = "Ort eingeben";
+            //HometownInput.StartTime = "7:00";
+            //HometownInput.EndTime = "18:00";
 
             WorkplaceInput = new SearchParameter();
 
@@ -24,9 +24,7 @@ namespace Pendler_Wettervorhersage
         }
 
 
-
-
-        public SearchParameter HometownInput
+        public SearchParameter HometownInput2
         {
             get => _hometownInput;
             set
@@ -35,6 +33,7 @@ namespace Pendler_Wettervorhersage
                 {
                     _hometownInput = value;
                     OnPropertyChanged();
+                    
                 }
             }
         }
@@ -42,7 +41,7 @@ namespace Pendler_Wettervorhersage
         private SearchParameter _workplaceInput;
 
         public SearchParameter WorkplaceInput
-        {
+        { 
             get => _workplaceInput;
             set
             {

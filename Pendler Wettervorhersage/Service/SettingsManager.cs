@@ -66,5 +66,19 @@ namespace Pendler_Wettervorhersage.Service
 
 
 
+        public void updateHometown (SearchParameter hometown)
+        {
+            HometownLocation = hometown.SearchLocation;
+            HometownSartTime = hometown.StartTime;
+            HometownEndTime = hometown.EndTime;
+        }
+
+        public void updateWorkplace (SearchParameter workplace)
+        {
+            WorkplaceLocation = workplace.SearchLocation;
+            WorkplaceSartTime = workplace.StartTime;
+            WorkplaceEndTimer = workplace.EndTime;
+        }
+
     }
 }

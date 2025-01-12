@@ -31,7 +31,7 @@
                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
             </Border.Effect>
         </Border>
-        <TextBox Name="LocationInput" Text="München" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderThickness="0" GotFocus="LocationTextBox_GotFocus" FontWeight="Bold" Margin="0,1,0,1"/>
+        <TextBox Name="LocationInput" Text="{Binding SearchLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Background="Transparent" BorderThickness="0" GotFocus="LocationTextBox_GotFocus" FontWeight="Bold" Margin="0,1,0,1"/>
 
         <Grid Grid.Column="2" Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -48,7 +48,7 @@
                     <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                 </Border.Effect>
             </Border>
-            <TextBox Name="TimeUpInput" Text="07:00" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
+            <TextBox Name="TimeUpInput" Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
         </Grid>
         <Grid Grid.Column="2" Grid.Row="4">
             <Grid.ColumnDefinitions>
@@ -65,8 +65,10 @@
                     <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                 </Border.Effect>
             </Border>
-            <TextBox Name="TimeDownInput" Text="16:00" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
+            <TextBox Name="TimeDownInput" Text="{Binding EndTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Background="Transparent" BorderThickness="0" FontSize="12" Margin="1,1,1,1"/>
         </Grid>
-
+        <Expander Header="Api Standort Antwort" FontSize="8" Grid.Column="1" Grid.Row="4">
+            <TextBlock Text="Dies ist der Text, der angezeigt wird, wenn man auf den Expander klickt." />
+        </Expander>
     </Grid>
 </UserControl>
