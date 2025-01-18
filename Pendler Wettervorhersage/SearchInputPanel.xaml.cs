@@ -24,11 +24,6 @@ namespace Pendler_Wettervorhersage
         {
             InitializeComponent();
         }
-        /*
-        private void LocationTextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            LocationInput.Text = string.Empty;
-        }
-        */
+        
     }
 }

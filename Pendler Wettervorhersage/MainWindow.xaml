@@ -113,7 +113,9 @@
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Grid.Column="0" Grid.Row="0"/>
+            <Viewbox Grid.Column="0" Grid.Row="0">
+            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" />
+            </Viewbox>
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2"/>
@@ -122,27 +124,18 @@
         </Grid>
 
 
-        <Grid Grid.Column="2" Grid.Row="2" Grid.RowSpan="7">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="0.7*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+       
+           
 
             
 
-            <Viewbox Grid.Column="1" Grid.Row="1" Panel.ZIndex="5">
-                <Button x:Name="SaveAndCall" Command="{Binding SaveAndGetWeatherCommand}"  Content="Speichern &amp; Abrufen" Style="{StaticResource DarkBlueButton}" Width="150" Height="30" Panel.ZIndex="1" />
-            </Viewbox>
+           
+        <Button x:Name="SaveAndCall" Command="{Binding SaveAndGetWeatherCommand}"  Content="Speichern &amp; Abrufen" Style="{StaticResource DarkBlueButton}" Grid.Column="2" Grid.Row="1" Width="150" Height="30"/>
+          
 
 
 
-        </Grid>
+     
 
         <!--Top Buttons-->
         <Grid  Grid.Column="4"  Grid.Row="1">
@@ -151,15 +144,16 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="0" Content="Infos" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
+            
+            <Button Grid.Column="1" Content="Infos" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
+           
             <Button Grid.Column="2" Content="Aktualisieren" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
-        </Grid>
         
         
-        <!-- Expander -->
-        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Left">
-            <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30" Command="{Binding Expander}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" >
+        
+        <!-- Toogle Collapse -->
+        
+            <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30" Command="{Binding ToggleCollapse}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" >
                 <ToggleButton.Style>
                 <Style TargetType="ToggleButton">
                     <Setter Property="Template">
@@ -194,7 +188,9 @@
                                 <Setter Property="Content" Value="Einklappen"/>
                             </Trigger>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Background" Value="#876213"/>
+                                <!--<Setter Property="Background" Value="#876213"/> -->
+                                <Setter Property="BorderBrush" Value="Navy"/>
+                                <Setter Property="Foreground" Value="Navy"/>
                             </Trigger>
                   
                             

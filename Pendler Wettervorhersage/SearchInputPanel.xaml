@@ -16,7 +16,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Background="#FFE3E3FF" BorderBrush="DarkSlateGray" BorderThickness="1" CornerRadius="8" >
+                        <Border Background="#FFE3E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
                             <Border.Effect>
                                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                             </Border.Effect>
@@ -34,7 +34,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Background="#FFE3E3FF" BorderBrush="DarkSlateGray" BorderThickness="1" CornerRadius="8" >
+                        <Border Background="#FFE3E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
                             <Border.Effect>
                                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                             </Border.Effect>

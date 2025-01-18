@@ -80,7 +80,7 @@ namespace Pendler_Wettervorhersage
 
             WorkplaceInput = new SearchParameter();
 
-            Expander = new DelegateCommand<bool?>(UseExpander);
+            ToggleCollapse = new DelegateCommand<bool?>(UseCollapse);
 
             this.SaveAndGetWeatherCommand = new DelegateNoParameter(SaveAndGetWeatherReports, canSaveInput);
         }
@@ -105,16 +105,16 @@ namespace Pendler_Wettervorhersage
 
 
 
-        //Expander 
+        //Collapse search input
         private int _columWidth = 260;
         public int ColumWidth
         {
             get => _columWidth;
             set { if (_columWidth != value) { _columWidth = value; OnPropertyChanged(); } }
         }
-        public DelegateCommand<bool?> Expander { get;}
+        public DelegateCommand<bool?> ToggleCollapse { get;}
 
-        public void UseExpander(bool? status)
+        public void UseCollapse(bool? status)
         {
             if (status.HasValue)
                 if (status == true)
