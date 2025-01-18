@@ -62,6 +62,22 @@ namespace Pendler_Wettervorhersage
             //Api discription
             forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
 
+            //Addtional Discriptopn
+            int chanceOfRain = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].ChanceOfRain;
+            int chanceOfSnow = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].ChanceOfSnow;
+
+            if (chanceOfRain > 0 && chanceOfSnow > 0)
+                forecastReport.AddtionalInformation = $"Niederschlagsw.: Regen {chanceOfRain}%, Schnee {chanceOfSnow}%";
+            else if (chanceOfRain > 0 && chanceOfSnow == 0)
+                forecastReport.AddtionalInformation = $"Regen.: {chanceOfRain}%";
+            else if (chanceOfRain == 0 && chanceOfSnow > 0)
+                forecastReport.AddtionalInformation = $"Schneefall.: {chanceOfSnow}";
+            else
+                forecastReport.AddtionalInformation = string.Empty;
+
+
+
+
            
             //Location
             forecastReport.Name = $"Name: {rawForecastData.Location.Name}";

@@ -23,8 +23,12 @@ namespace Pendler_Wettervorhersage
         [JsonProperty("feelslike_c")]
         public decimal FeelsLikeC { get; set; }
 
-        [JsonProperty("will_it_rain")]
-        public int WillItRain { get; set; }
+        [JsonProperty("chance_of_rain")]
+        public int ChanceOfRain { get; set; }
+
+        [JsonProperty("chance_of_snow")]
+        public int ChanceOfSnow { get; set; }
+
 
 
 
