@@ -31,21 +31,23 @@
         <!--farbe merken "#FFFEF0-->
         <Border Grid.ColumnSpan="5" Grid.RowSpan="9" Background="#FDFEFC" BorderThickness="1" CornerRadius="10" BorderBrush="#FF101047" Padding="10"></Border>
 
-        <Viewbox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock Text="{Binding TitleDay}" FontWeight="Bold"/>
-        </Viewbox>
-        <Viewbox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock Text="{Binding ApiWeatherDiscription}"/>
-        </Viewbox>
-        <Viewbox Grid.Row="4" Grid.Column="2" Grid.RowSpan="2">
-            <StackPanel>
-                <TextBlock Text="{Binding TemperaturC}"/>
-                <TextBlock Text="{Binding FeelsLikeTempC}"/>
-            </StackPanel>
-        </Viewbox>
-        <Viewbox Grid.Row="7" Grid.Column="1">
-            <TextBlock Text="{Binding AddtionalInformation}"/>
-        </Viewbox>
-        <svgc:SvgViewbox Source="{Binding IconPath}" Grid.Column="1" Grid.Row="2" Grid.RowSpan="5" Width="50" Height="50"/>
+        
+            <TextBlock Text="{Binding TitleDay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontWeight="Bold"/>
+       
+        
+            <TextBlock Text="{Binding ApiWeatherDiscription}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+       
+        
+            <TextBlock Text="{Binding TemperaturC}" Grid.Row="4" Grid.Column="2"/>
+       
+        
+            <TextBlock Text="{Binding FeelsLikeTempC}" Grid.Row="5" Grid.Column="2"/>
+       
+        
+            <TextBlock Text="{Binding AddtionalInformation}" Grid.Row="7" Grid.Column="1"/>
+        
+        
+        <svgc:SvgViewbox Source="{Binding IconPath}" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="5" Width="50" Height="50"/>
+        
     </Grid>
 </UserControl>

@@ -38,10 +38,10 @@ namespace Pendler_Wettervorhersage.Service
 
         public string WorkplaceLocation
         {
-            get => Properties.Settings.Default.HometownLocation;
+            get => Properties.Settings.Default.WorkplaceLocation;
             set
             {
-                Properties.Settings.Default.HometownLocation = value;
+                Properties.Settings.Default.WorkplaceLocation = value;
                 Properties.Settings.Default.Save();
             }
         }
@@ -54,7 +54,7 @@ namespace Pendler_Wettervorhersage.Service
                 Properties.Settings.Default.Save();
             }
         }
-        public string WorkplaceEndTimer
+        public string WorkplaceEndTime
         {
             get => Properties.Settings.Default.WorkplaceEndTime;
             set
@@ -63,6 +63,19 @@ namespace Pendler_Wettervorhersage.Service
                 Properties.Settings.Default.Save();
             }
         }
+
+
+        public bool FirstStart
+        {
+            get => Properties.Settings.Default.FirstStart;
+            set
+            {
+                Properties.Settings.Default.FirstStart = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+
 
 
 
@@ -77,8 +90,10 @@ namespace Pendler_Wettervorhersage.Service
         {
             WorkplaceLocation = workplace.SearchLocation;
             WorkplaceSartTime = workplace.StartTime;
-            WorkplaceEndTimer = workplace.EndTime;
+            WorkplaceEndTime = workplace.EndTime;
         }
+
+        
 
     }
 }

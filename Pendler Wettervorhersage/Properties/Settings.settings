@@ -12,22 +12,25 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="WorkplaceStartTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">7:00</Value>
     </Setting>
     <Setting Name="WorkplaceEndTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">17:00</Value>
     </Setting>
     <Setting Name="WorkplaceLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">München</Value>
     </Setting>
     <Setting Name="HometownLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Ingolstadt</Value>
     </Setting>
     <Setting Name="HometownStartTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">6:00</Value>
     </Setting>
     <Setting Name="HometownEndTime" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">18:00</Value>
+    </Setting>
+    <Setting Name="FirstStart" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

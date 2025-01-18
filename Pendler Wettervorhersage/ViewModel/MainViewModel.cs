@@ -74,15 +74,14 @@ namespace Pendler_Wettervorhersage
             }
 
             HometownInput = new SearchParameter();
-            HometownInput.SearchLocation = "Ingolstadt";
-            HometownInput.StartTime = "7:00";
-            HometownInput.EndTime = "16:00";
-
             WorkplaceInput = new SearchParameter();
 
             ToggleCollapse = new DelegateCommand<bool?>(UseCollapse);
 
             this.SaveAndGetWeatherCommand = new DelegateNoParameter(SaveAndGetWeatherReports, canSaveInput);
+
+            Startapp();
+
         }
 
 
@@ -193,6 +192,34 @@ namespace Pendler_Wettervorhersage
             WorkplaceInput.Country = forecastReports[0].Country;
 
 
+        }
+
+
+        //Programm start
+        internal void Startapp()
+        {
+            SettingsManager settingsManager = new SettingsManager();
+
+            //if (settingsManager.FirstStart == true)
+            //{
+            //settingsManager.FirstStart = false;
+
+           
+
+                WorkplaceInput.SearchLocation = settingsManager.WorkplaceLocation;
+                WorkplaceInput.StartTime = settingsManager.WorkplaceSartTime;
+                WorkplaceInput.EndTime = settingsManager.WorkplaceEndTime;
+
+            
+                HometownInput.SearchLocation = settingsManager.HometownLocation;
+           
+                HometownInput.StartTime = settingsManager.HometownSartTime;
+                HometownInput.EndTime = settingsManager.HometownEndTime;
+
+                GetWeatherReports();
+
+
+            //}
         }
 
 

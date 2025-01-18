@@ -7,7 +7,7 @@
         
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
-        Title="Pendler Wettervorhersage" Height="550" Width="800">
+        Title="Pendler Wettervorhersage" Height="600" Width="800">
        
     <Window.Resources>
         <!--Style for dark blue buttons-->
@@ -60,11 +60,11 @@
             <RowDefinition Height="0.05"/>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="0.05*"/>
-            <RowDefinition/>
+            <RowDefinition Height="1.2*"/> <!--Infopanels-->
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.02*"></RowDefinition>
             <RowDefinition Height="0.05*"/>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="1.2*"/> <!--Infopanels-->
             <RowDefinition Height="0.05*"/>
             <RowDefinition Height="0.05*"/>
         </Grid.RowDefinitions>
@@ -113,13 +113,16 @@
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Viewbox Grid.Column="0" Grid.Row="0">
+            
+                <Viewbox Stretch="Fill" >
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" />
-            </Viewbox>
+                </Viewbox>
+            
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
+            
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2" />
+                 <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
             <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="2"/>
         </Grid>
 

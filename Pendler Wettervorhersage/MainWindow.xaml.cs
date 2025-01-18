@@ -12,6 +12,7 @@ namespace Pendler_Wettervorhersage
         
         public MainWindow()
         {
+            Properties.Settings.Default.Reset();
             InitializeComponent();
 
             var viewModel = new MainViewModel();
