@@ -10,6 +10,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\WeatherNight\clear-night.svg" />
+    <None Remove="Icons\WeatherNight\fog-night.svg" />
+    <None Remove="Icons\WeatherNight\haze-night.svg" />
+    <None Remove="Icons\WeatherNight\overcast-night.svg" />
+    <None Remove="Icons\WeatherNight\overcast.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night-drizzle.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night-hail.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night-rain.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night-sleet.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night-snow.svg" />
+    <None Remove="Icons\WeatherNight\partly-cloudy-night.svg" />
+    <None Remove="Icons\WeatherNight\rain.svg" />
+    <None Remove="Icons\WeatherNight\sleet.svg" />
+    <None Remove="Icons\WeatherNight\snow.svg" />
+    <None Remove="Icons\WeatherNight\thunderstorms-night-rain.svg" />
+    <None Remove="Icons\WeatherNight\thunderstorms-night-snow.svg" />
+    <None Remove="Icons\WeatherNight\thunderstorms-night.svg" />
     <None Remove="Icons\Weather\clear-day.svg" />
     <None Remove="Icons\Weather\fog-day.svg" />
     <None Remove="Icons\Weather\haze-day.svg" />
@@ -35,6 +52,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\WeatherNight\clear-night.svg" />
+    <Resource Include="Icons\WeatherNight\fog-night.svg" />
+    <Resource Include="Icons\WeatherNight\haze-night.svg" />
+    <Resource Include="Icons\WeatherNight\overcast-night.svg" />
+    <Resource Include="Icons\WeatherNight\overcast.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night-drizzle.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night-hail.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night-rain.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night-sleet.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night-snow.svg" />
+    <Resource Include="Icons\WeatherNight\partly-cloudy-night.svg" />
+    <Resource Include="Icons\WeatherNight\rain.svg" />
+    <Resource Include="Icons\WeatherNight\sleet.svg" />
+    <Resource Include="Icons\WeatherNight\snow.svg" />
+    <Resource Include="Icons\WeatherNight\thunderstorms-night-rain.svg" />
+    <Resource Include="Icons\WeatherNight\thunderstorms-night-snow.svg" />
+    <Resource Include="Icons\WeatherNight\thunderstorms-night.svg" />
     <Resource Include="Icons\Weather\clear-day.svg" />
     <Resource Include="Icons\Weather\fog-day.svg" />
     <Resource Include="Icons\Weather\haze-day.svg" />

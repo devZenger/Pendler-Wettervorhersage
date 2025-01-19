@@ -1,5 +1,7 @@
 ﻿using Pendler_Wettervorhersage.Service;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Windows;
 
 namespace Pendler_Wettervorhersage
 {
@@ -57,7 +59,13 @@ namespace Pendler_Wettervorhersage
 
             //Icon 
             WeatherIconsPath iconPath = new WeatherIconsPath();
-            forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code);
+            
+            string sunrise = rawForecastData.Forecast.Forecastdays[day].Astro.Sunrise;
+            string sunset = rawForecastData.Forecast.Forecastdays[day].Astro.Sunset;
+
+            bool dayLight = CheckDayLight(timeString, sunrise, sunset);
+
+            forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code, dayLight);
 
             //Api discription
             forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;
@@ -104,7 +112,32 @@ namespace Pendler_Wettervorhersage
         }
 
 
+        internal bool CheckDayLight(string time, string sunrise, string sunset)
+        {
+            DateTime dateTime;
+            DateTime dateSunrise;
+            DateTime dateSunset;
 
+
+            if (DateTime.TryParseExact(sunrise, "h:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateSunrise) != true)
+                        MessageBox.Show("Fehlerhafte Sonnenaufgangszeit Konvertierung");
+
+            if (DateTime.TryParseExact(sunset, "h:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateSunset) != true)
+                             MessageBox.Show("Fehlerhafte Sonnenunterhangszeit Konvertierung");
+
+            if (DateTime.TryParseExact(time, "H:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime) != true)
+                         MessageBox.Show("Fehlerhafte Eingbezeit Konvertierung");
+
+
+
+            if (dateTime >= dateSunrise && dateTime < dateSunset)
+                return true;
+            else
+                return false;
+
+
+            
+        }
 
 
 

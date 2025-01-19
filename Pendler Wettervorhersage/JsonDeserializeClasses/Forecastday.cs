@@ -13,5 +13,7 @@ namespace Pendler_Wettervorhersage
         public string Date { get; set; } = string.Empty;
         [JsonProperty("hour")]
         public List<Hour> Hours { get; set; } = new List<Hour>();
+        [JsonProperty("astro")]
+        public Astro Astro { get; set; } = new Astro();
     }
 }
