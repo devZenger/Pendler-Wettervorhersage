@@ -12,8 +12,32 @@ namespace Pendler_Wettervorhersage
     {
         public WeatherApiResponse UseWeatherApi(string searchLocation, bool germany)
         {
-            if (germany)
-                searchLocation = $"{searchLocation}, Germany";
+            searchLocation = searchLocation.Trim();
+
+            int searchPlz;
+
+            bool plz = int.TryParse(searchLocation, out searchPlz);
+
+            string lat;
+            string lon;
+                
+
+            if (plz)
+            {
+                PlzSearch plzSearch = new PlzSearch();
+
+                List<PlzCsv> plzResult = plzSearch.SearchPlz(searchPlz);
+                lat = plzResult[0].Latidude;
+                lon = plzResult[0].Longitude;
+                searchLocation = $"{lat}, {lon}";   
+            }
+
+
+
+
+
+            //if (germany)
+              //  searchLocation = $"{searchLocation}, Germany";
 
             string apiKey = Properties.Settings.Default.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";

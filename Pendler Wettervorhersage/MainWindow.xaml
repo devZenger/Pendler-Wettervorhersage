@@ -7,7 +7,7 @@
         
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
-        Title="Pendler Wettervorhersage" Height="600" Width="800">
+        Title="Pendler Wettervorhersage" Height="600" Width="760">
        
     <Window.Resources>
         <!--Style for dark blue buttons-->
@@ -88,12 +88,24 @@
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Grid.Column="0" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Grid.Column="0" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Grid.Column="2" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Grid.Column="2" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Grid.Column="4" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Grid.Column="4" Grid.Row="2"/>
+            <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Width="150" Height="110"/>
+            </Viewbox>
         </Grid>
         
         <!--Workplace Input-->
@@ -114,16 +126,29 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             
-                <Viewbox Stretch="Fill" >
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" />
-                </Viewbox>
-            
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Grid.Column="0" Grid.Row="2"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Grid.Column="2" Grid.Row="0"/>
-            
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Grid.Column="2" Grid.Row="2" />
-                 <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Grid.Column="4" Grid.Row="0"/>
-            <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Grid.Column="4" Grid.Row="2"/>
+             <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Width="150" Height="110"/>
+             </Viewbox>
+
+            <Viewbox Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Width="150" Height="110"/>
+            </Viewbox>
+
+            <Viewbox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Width="150" Height="110"/>
+            </Viewbox>
+
+            <Viewbox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Width="150" Height="110"/>
+            </Viewbox>
+
+            <Viewbox Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Width="150" Height="110"/>
+            </Viewbox>
+            <Viewbox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Width="150" Height="110"/>
+            </Viewbox>
         </Grid>
 
 

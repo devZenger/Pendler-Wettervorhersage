@@ -9,45 +9,46 @@
              xmlns:local="clr-namespace:Pendler_Wettervorhersage"
              
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="150" d:DesignWidth="200">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.02*"></ColumnDefinition>
-            <ColumnDefinition Width="0.8*"></ColumnDefinition>
-            <ColumnDefinition Width="0.2*"></ColumnDefinition>
-            <ColumnDefinition Width="0.02*"></ColumnDefinition>
+            <ColumnDefinition Width="0.03*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+    
+            <ColumnDefinition Width="0.03*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+            <RowDefinition Height="1.1*"></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
         </Grid.RowDefinitions>
         <!--farbe merken "#FFFEF0-->
-        <Border Grid.ColumnSpan="5" Grid.RowSpan="9" Background="#FDFEFC" BorderThickness="1" CornerRadius="10" BorderBrush="#FF101047" Padding="10"></Border>
+        <Border Grid.ColumnSpan="4" Grid.RowSpan="9" Background="#FDFEFC" BorderThickness="1" CornerRadius="10" BorderBrush="#FF101047" Padding="10"></Border>
 
-        
-            <TextBlock Text="{Binding TitleDay}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" FontWeight="Bold"/>
-       
-        
-            <TextBlock Text="{Binding ApiWeatherDiscription}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-       
-        
-            <TextBlock Text="{Binding TemperaturC}" Grid.Row="4" Grid.Column="2"/>
-       
-        
-            <TextBlock Text="{Binding FeelsLikeTempC}" Grid.Row="5" Grid.Column="2"/>
-       
-        
-            <TextBlock Text="{Binding AddtionalInformation}" Grid.Row="7" Grid.Column="1"/>
-        
-        
-        <svgc:SvgViewbox Source="{Binding IconPath}" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="5" Width="50" Height="50"/>
+
+        <TextBlock Text="{Binding TitleDay, FallbackValue='Heute'}" Grid.Row="1" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2"/>
+
+
+        <TextBlock Text="{Binding ApiWeatherDiscription, FallbackValue='stellenweise Regenfall'}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Panel.ZIndex="2"/>
+
+
+        <TextBlock Text="{Binding TemperaturC, FallbackValue='-10,5°C'}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2"/>
+
+
+
+        <TextBlock Text="{Binding FeelsLikeTempC, FallbackValue='27,5°C'}" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2" />
+
+
+        <TextBlock Text="{Binding AddtionalInformation, FallbackValue='Regenw.: 67%'}" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Panel.ZIndex="2"/>
+
+
+        <svgc:SvgViewbox Source="{Binding IconPath, FallbackValue='/Icons/Weather/clear-day.svg'}" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="5" Width="60" Height="60" HorizontalAlignment="Left" Margin="10,0,0,0"/>
         
     </Grid>
 </UserControl>
