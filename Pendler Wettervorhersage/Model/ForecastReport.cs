@@ -8,7 +8,7 @@
             get => _titleDay;
             set
             {
-                if (_titleDay != value) ;
+                if (_titleDay != value)
                 {
                     _titleDay = value;
                     OnPropertyChanged();
@@ -22,7 +22,7 @@
             get => _apiWeatherDiscription;
             set
             {
-                if (_apiWeatherDiscription != value) ;
+                if (_apiWeatherDiscription != value)
                 {
                     _apiWeatherDiscription = value;
                     OnPropertyChanged();
@@ -36,7 +36,7 @@
             get => _temperaturC;
             set
             {
-                if (_temperaturC != value) ;
+                if (_temperaturC != value)
                 {
                     _temperaturC = value;
                     OnPropertyChanged();
@@ -51,7 +51,7 @@
             get => _feelsLikeTempC;
             set
             {
-                if (_feelsLikeTempC != value) ;
+                if (_feelsLikeTempC != value)
                 {
                     _feelsLikeTempC = value;
                     OnPropertyChanged();
@@ -67,7 +67,7 @@
             get => _iconPath;
             set
             {
-                if (_iconPath != value) ;
+                if (_iconPath != value)
                 {
                     _iconPath = value;
                     OnPropertyChanged();
@@ -75,14 +75,14 @@
             }
         }
 
-        private string _addtionalInformation = "Wind aus Norden";
+        private string _addtionalInformation = "Regenw.: 67%";
 
         public string AddtionalInformation
         {
             get => _addtionalInformation;
             set
             {
-                if (_addtionalInformation != value) ;
+                if (_addtionalInformation != value)
                 {
                     _addtionalInformation = value;
                     OnPropertyChanged();
@@ -133,27 +133,7 @@
             }
         }
 
-
-
-
-
-
-        public void UpdateAll(string title, string discription, string tempC, string windChillC, string addInformation)
-        {
-            _titleDay = title;
-            _apiWeatherDiscription = discription;
-            _temperaturC = tempC;
-          
-            _addtionalInformation = addInformation;
-
-            OnPropertyChanged();
-        }
-
-
     }
-
-
-
 }
 
 

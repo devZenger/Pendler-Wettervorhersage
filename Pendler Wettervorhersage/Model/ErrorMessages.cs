@@ -8,7 +8,7 @@ namespace Pendler_Wettervorhersage
 {
     public class ErrorMessages
     {
-        public List<ErrorMessage> MessageErrors { get; set; } //= new List<ErrorMessage>();
+        public List<ErrorMessage> MessageErrors { get; set; }
 
         public ErrorMessages()
         {
@@ -33,10 +33,6 @@ namespace Pendler_Wettervorhersage
             Message = message;
 
         }
-        /*
-        public ErrorMessage(bool isError)
-        {
-            IsError = isError;
-        }*/
+        
     }
 }

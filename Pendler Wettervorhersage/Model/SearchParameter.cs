@@ -98,6 +98,24 @@ namespace Pendler_Wettervorhersage
             }
         }
 
+        //Error message
+        private string _errorMessage = string.Empty;
+        public string ErrorMessage
+        {
+            get => _errorMessage;
+            set
+            {
+                if (value != _errorMessage)
+                {
+                    _errorMessage = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
+
+
+
 
 
 

@@ -8,14 +8,11 @@ namespace Pendler_Wettervorhersage
 {
     internal class GetWeatherForecast
     {
-        
-        public List<ForecastReport> Process(SearchParameter searchParameter, bool germany)
+        public List<ForecastReport> Process(SearchParameter searchParameter)
         {
             ApiWeatherForcastService weatherResponse = new ApiWeatherForcastService();
 
-           
-
-            WeatherApiResponse forecastRaw = weatherResponse.UseWeatherApi(searchParameter.SearchLocation, germany);
+            WeatherApiResponse forecastRaw = weatherResponse.UseWeatherApi(searchParameter.SearchLocation);
 
             ForecastDataProcess forecastDataProcess = new ForecastDataProcess();
 
@@ -25,7 +22,5 @@ namespace Pendler_Wettervorhersage
 
             return forecastProcessed;
         }
-
-
     }
 }

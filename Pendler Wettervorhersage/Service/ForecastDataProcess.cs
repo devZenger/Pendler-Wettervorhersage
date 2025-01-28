@@ -11,12 +11,21 @@ namespace Pendler_Wettervorhersage
         public List<ForecastReport> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
         {
             List<ForecastReport> forecastReportForPanels = new List<ForecastReport>();
-  
+
+            if (rawForecastData.Error != null)
+            {
+                if (rawForecastData.Error.Code != 0)
+                {
+                    throw new Exception(rawForecastData.Error.Message);
+                }
+            }
+            else { 
             for (int i = 0; i < 3; i++)
             {
                 forecastReportForPanels.Add(SingleDayForecast(rawForecastData, searchInput.StartTime, i));
                 forecastReportForPanels.Add(SingleDayForecast(rawForecastData, searchInput.EndTime, i));
                 forecastReportForPanels[forecastReportForPanels.Count - 1].TitleDay = forecastReportForPanels[forecastReportForPanels.Count - 1].TitleDay = ""; 
+            }
             }
             return forecastReportForPanels;
         }
@@ -64,7 +73,6 @@ namespace Pendler_Wettervorhersage
             string sunset = rawForecastData.Forecast.Forecastdays[day].Astro.Sunset;
 
             bool dayLight = CheckDayLight(timeString, sunrise, sunset);
-
             forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code, dayLight);
 
             //Api discription
@@ -83,20 +91,15 @@ namespace Pendler_Wettervorhersage
             else
                 forecastReport.AddtionalInformation = string.Empty;
 
-
-
-
-           
             //Location
             forecastReport.Name = $"Name: {rawForecastData.Location.Name}";
             forecastReport.Region = $"Region: {rawForecastData.Location.Region}";
             forecastReport.Country = $"Country: {rawForecastData.Location.Country}";
 
-
             return forecastReport;
         }
 
-        public int[] TimeToInt(string timeInput)
+        internal int[] TimeToInt(string timeInput)
         {
             string[] time = timeInput.Split(":");
             int[] timeInt = new int[2];
@@ -105,12 +108,11 @@ namespace Pendler_Wettervorhersage
             return timeInt;
         }
 
-        public string ValueAtMinutes(decimal one, decimal two, int minutes)
+        internal string ValueAtMinutes(decimal one, decimal two, int minutes)
         {
             return ((one + two) / 60 * minutes + one).ToString("F1");   
            
         }
-
 
         internal bool CheckDayLight(string time, string sunrise, string sunset)
         {
@@ -127,8 +129,6 @@ namespace Pendler_Wettervorhersage
 
             if (DateTime.TryParseExact(time, "H:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime) != true)
                          MessageBox.Show("Fehlerhafte Eingbezeit Konvertierung");
-
-
 
             if (dateTime >= dateSunrise && dateTime < dateSunset)
                 return true;

@@ -15,5 +15,7 @@ namespace Pendler_Wettervorhersage
 
         [JsonProperty("forecast")]
         public Forecast Forecast {get; set; }
+        [JsonProperty("error")]
+        public Error Error { get; set; }
     }
 }

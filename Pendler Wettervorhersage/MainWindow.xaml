@@ -49,7 +49,7 @@
     
     <Grid Background="#608BC1">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="0.1*"/> <!--0.1*-->
             <ColumnDefinition Width="0.1*"/>
             <ColumnDefinition x:Name="SeachInputColumn"  Width="{Binding ColumWidth}"/>
             <ColumnDefinition Width="0.2*"/>
@@ -59,14 +59,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.05"/>
             <RowDefinition Height="50"></RowDefinition>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.03*"/>
             <RowDefinition Height="1.2*"/> <!--Infopanels-->
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.03*"/>
             <RowDefinition Height="0.02*"></RowDefinition>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.03*"/>
             <RowDefinition Height="1.2*"/> <!--Infopanels-->
-            <RowDefinition Height="0.05*"/>
-            <RowDefinition Height="0.05*"/>
+            <RowDefinition Height="0.03*"/>
+            <RowDefinition Height="0.03*"/>
         </Grid.RowDefinitions>
 
 
@@ -77,11 +77,11 @@
         <Grid Grid.Column="4" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.01*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -114,11 +114,11 @@
         <Grid Grid.Column="4" Grid.Row="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.01*"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.05*"/>
+                <ColumnDefinition Width="0.03*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -173,7 +173,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="1" Content="Infos" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
+            <Button Grid.Column="1" Content="Infos" Command="{Binding InfoWindow}" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
            
             <Button Grid.Column="2" Content="Aktualisieren" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
         

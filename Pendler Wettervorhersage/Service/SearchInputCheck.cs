@@ -41,6 +41,10 @@ namespace Pendler_Wettervorhersage
             {
                 return timeTest;
             }
+            else if (timeSplit[1].Length != 2)
+            {
+                return timeTest;
+            }
             else
             {
                 bool[] test = new bool[2];

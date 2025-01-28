@@ -11,12 +11,12 @@
         <Style x:Key="TimeInput" TargetType="TextBox">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Padding" Value="5"/>
-            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Width" Value="45"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Background="#FFE3E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
+                        <Border Background="#D2E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
                             <Border.Effect>
                                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                             </Border.Effect>
@@ -34,7 +34,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border Background="#FFE3E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
+                        <!--#D4E4FF   #FFE3E3FF-->
+                        <Border Background="#D2E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
                             <Border.Effect>
                                 <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
                             </Border.Effect>
@@ -67,23 +68,21 @@
             </Border.Effect>
         </Border>
         <!--Search Location-->
-
-            <TextBox Style="{StaticResource LocationInput}" Text="{Binding SearchLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
-        
-        <!--Start Time-->         
-            <TextBox Style="{StaticResource TimeInput}" Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="1,1,1,1"/>
-        
+        <TextBox Style="{StaticResource LocationInput}" Text="{Binding SearchLocation, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <!--Start Time-->
+        <TextBox Style="{StaticResource TimeInput}" Text="{Binding StartTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="1,1,1,1"/>
         <!--End Time-->
             <TextBox Style="{StaticResource TimeInput}" Text="{Binding EndTime, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"  Margin="1,1,1,1"/>
-       
-        
+
+        <TextBlock Text="{Binding ErrorMessage, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Background="Transparent" Foreground="Red" FontWeight="Bold" TextWrapping="Wrap" />
+
+
         <Expander Header="Api Standort Antwort" FontSize="8" Grid.Column="1" Grid.Row="2">
             <StackPanel>
                 <TextBlock Text="{Binding Name}"/>
                 <TextBlock Text="{Binding Region}"/>
                 <TextBlock Text="{Binding Country}"/>
             </StackPanel>
-            
         </Expander>
     </Grid>
 </UserControl>
