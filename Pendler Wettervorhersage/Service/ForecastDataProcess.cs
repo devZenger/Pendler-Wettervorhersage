@@ -73,7 +73,7 @@ namespace Pendler_Wettervorhersage
             string sunset = rawForecastData.Forecast.Forecastdays[day].Astro.Sunset;
 
             bool dayLight = CheckDayLight(timeString, sunrise, sunset);
-            forecastReport.IconPath = iconPath.getIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code, dayLight);
+            forecastReport.IconPath = iconPath.GetIconPath(rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Code, dayLight);
 
             //Api discription
             forecastReport.ApiWeatherDiscription = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].Condition.Text;

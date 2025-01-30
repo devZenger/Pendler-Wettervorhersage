@@ -1,0 +1,7 @@
+@startuml
+class Condition {
+    + Code : int <<get>> <<set>>
+    + Text : string <<get>> <<set>>
+    + Icon : string <<get>> <<set>>
+}
+@enduml

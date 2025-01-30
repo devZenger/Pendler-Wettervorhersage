@@ -1,0 +1,11 @@
+@startuml
+class PlzSearch {
+    + SearchPlz(plz:int) : List<PlzCsv>
+}
+class PlzCsv {
+    + Plz : int <<get>> <<set>>
+    + City : string <<get>> <<set>>
+    + Longitude : string <<get>> <<set>>
+    + Latidude : string <<get>> <<set>>
+}
+@enduml

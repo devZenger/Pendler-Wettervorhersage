@@ -1,0 +1,5 @@
+@startuml
+class Forecast {
+    + Forecastdays : List<Forecastday> <<get>> <<set>>
+}
+@enduml

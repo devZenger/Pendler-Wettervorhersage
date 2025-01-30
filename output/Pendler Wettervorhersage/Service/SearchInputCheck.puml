@@ -1,0 +1,7 @@
+@startuml
+class SearchInputCheck {
+    + CheckInput(input:SearchParameter) : bool
+    + LocationCheck(input:string) : bool
+    + CheckTime(timeInput:string) : bool
+}
+@enduml
