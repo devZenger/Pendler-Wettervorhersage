@@ -115,6 +115,12 @@ namespace Pendler_Wettervorhersage
             get => _columWidth;
             set { if (_columWidth != value) { _columWidth = value; OnPropertyChanged(); } }
         }
+        private int _columWidthBlue = 5;
+        public int ColumWidthBlue
+        {
+            get => _columWidthBlue;
+            set { if (_columWidthBlue != value) { _columWidthBlue = value; OnPropertyChanged(); } }
+        }
         public DelegateCommand<bool?> ToggleCollapse { get;}
 
         public void UseCollapse(bool? status)
@@ -123,12 +129,14 @@ namespace Pendler_Wettervorhersage
                 if (status == true)
                 {
                     ColumWidth = 0;
-                    Application.Current.MainWindow.Width = 560;
+                    ColumWidthBlue = 0;
+                    Application.Current.MainWindow.Width = 540;
                 }
                 else 
                 { 
                     ColumWidth = 200;
-                    Application.Current.MainWindow.Width = 760;
+                    ColumWidthBlue = 5;
+                    Application.Current.MainWindow.Width = 780;
                 }
           }
 
