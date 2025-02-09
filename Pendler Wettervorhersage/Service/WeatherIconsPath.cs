@@ -12,14 +12,12 @@ namespace Pendler_Wettervorhersage.Service
 {
     internal class WeatherIconsPath
     {
-
         public string getIconPath(int code, bool day) 
         {
             if (day == false)
             {
                 return code switch
                 {
-
                     // Sunny and cloudy
                     1000 => "/Icons/WeatherNight/clear-night.svg",
                     1003 => "/Icons/WeatherNight/partly-cloudy-night.svg",
@@ -44,29 +42,23 @@ namespace Pendler_Wettervorhersage.Service
                     1066 or 1114 or 1210 or 1213 or 1216 or 1219 or 1255 or 1258 => "/Icons/WeatherNight/partly-cloudy-night-snow.svg",
                     1222 or 1225 => "/Icons/WeatherNight/snow.svg",
 
-
-
                     //Snow and rain
                     1069 or 1204 or 1249 => "/Icons/WeatherNight/partly-cloudy-night-sleet.svg",
                     1207 or 1252 => "/Icons/WeatherNight/sleet.svg",
 
                     //Ice and frozen rains
-                    1072 or 1150 or 1153 or 1168 or 1198 => "/Icons/Weather/partly-cloudy-night-sleet.svg",
+                    1072 or 1150 or 1153 or 1168 or 1198 => "/Icons/WeatherNight/partly-cloudy-night-sleet.svg",
                     1237 or 1261 => "/Icons/WeatherNight/partly-cloudy-night-hail.svg",
                     1264 => "/Icons/WeatherNight/sleet.svg",
                     1201 or 1171 => "/Icons/WeatherNight/partly-cloudy-night-sleet.svg",
 
                     _ => "/Icons/WeatherNight/partly-cloudy-night.svg"
-
                 };
             }
-
             else
             {
-
                 return code switch
                 {
-
                     // Sunny and cloudy
                     1000 => "/Icons/Weather/clear-day.svg",
                     1003 => "/Icons/Weather/partly-cloudy-day.svg",
@@ -91,8 +83,6 @@ namespace Pendler_Wettervorhersage.Service
                     1066 or 1114 or 1210 or 1213 or 1216 or 1219 or 1255 or 1258 => "/Icons/Weather/partly-cloudy-day-snow.svg",
                     1222 or 1225 => "/Icons/Weather/snow.svg",
 
-
-
                     //Snow and rain
                     1069 or 1204 or 1249 => "/Icons/Weather/partly-cloudy-day-sleet.svg",
                     1207 or 1252 => "/Icons/Weather/sleet.svg",
@@ -104,12 +94,8 @@ namespace Pendler_Wettervorhersage.Service
                     1201 or 1171 => "/Icons/Weather/partly-cloudy-day-sleet.svg",
 
                     _ => "Icons/Weather/partly-cloudy-day.svg"
-
                 };
             }
-
-
-
         }
     }
 }
