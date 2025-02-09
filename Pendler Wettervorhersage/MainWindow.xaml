@@ -71,8 +71,9 @@
 
 
         <!--Hometown Time Input-->
-        <local:SearchInputPanel DataContext="{Binding HometownInput, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="3"/>
-       
+        <Viewbox Grid.Column="2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <local:SearchInputPanel DataContext="{Binding HometownInput, UpdateSourceTrigger=PropertyChanged}" Height="250" Width="200"/>
+        </Viewbox>
         <!--WeatherInfopanels Hometown-->
         <Grid Grid.Column="4" Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -89,27 +90,29 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[0]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[1]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[2]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[3]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[4]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding HometownPanels[5]}" Width="170" Height="120"/>
             </Viewbox>
         </Grid>
         
         <!--Workplace Input-->
-        <local:SearchInputPanel DataContext="{Binding WorkplaceInput, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="2" Grid.Row="7"/>
+        <Viewbox Grid.Column="2" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <local:SearchInputPanel DataContext="{Binding WorkplaceInput, UpdateSourceTrigger=PropertyChanged}"  Grid.Column="2" Grid.Row="7" Height="250" Width="200"/>
+        </Viewbox>
         <!--WeatherInfopanels Workplace-->
         <Grid Grid.Column="4" Grid.Row="7">
             <Grid.ColumnDefinitions>
@@ -125,45 +128,42 @@
                 <RowDefinition Height="0.05*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
-             <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Width="150" Height="110"/>
-             </Viewbox>
+
+            <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[0]}" Width="170" Height="120"/>
+            </Viewbox>
 
             <Viewbox Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[1]}" Width="170" Height="120"/>
             </Viewbox>
 
             <Viewbox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[2]}" Width="170" Height="120"/>
             </Viewbox>
 
             <Viewbox Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[3]}" Width="170" Height="120"/>
             </Viewbox>
 
             <Viewbox Grid.Column="4" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[4]}" Width="170" Height="120"/>
             </Viewbox>
             <Viewbox Grid.Column="4" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Width="150" Height="110"/>
+                <local:WeatherInfoPanelView DataContext="{Binding WorkplacePanels[5]}" Width="170" Height="120"/>
             </Viewbox>
         </Grid>
 
 
-       
-           
 
-            
 
-           
-        <Button x:Name="SaveAndCall" Command="{Binding SaveAndGetWeatherCommand}"  Content="Speichern &amp; Abrufen" Style="{StaticResource DarkBlueButton}" Grid.Column="2" Grid.Row="1" Width="150" Height="30"/>
-          
+        <Viewbox Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="SaveAndCall" Command="{Binding SaveAndGetWeatherCommand}"  Content="Speichern &amp; Abrufen" Style="{StaticResource DarkBlueButton}" Width="150" Height="30"/>
+        </Viewbox>
 
 
 
-     
+
 
         <!--Top Buttons-->
         <Grid  Grid.Column="4"  Grid.Row="1">
@@ -173,62 +173,65 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="1" Content="Infos" Command="{Binding InfoWindow}" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
-           
-            <Button Grid.Column="2" Content="Aktualisieren" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
-        
-        
-        
-        <!-- Toogle Collapse -->
-        
-            <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30" Command="{Binding ToggleCollapse}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" >
-                <ToggleButton.Style>
-                <Style TargetType="ToggleButton">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <!--#F5AB0F-->
-                            <ControlTemplate TargetType="ToggleButton">
-                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="10">
-                                        <Border.Effect>
-                                            <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
-                                        </Border.Effect>
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <ContentPresenter.Effect>
-                                
-                                            <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="2" Opacity="0.5"/>
-                                            </ContentPresenter.Effect>
-                                        </ContentPresenter>
-                            </Border>
-                        </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                        <Setter Property="Background" Value="#F5AB0F"/>
-                        <Setter Property="Content" Value="Off"/>
-                    <Setter Property="BorderBrush" Value="#FDFEFC"/>
-                        <Setter Property="Foreground" Value="#FDFEFC"/>
-                    
-                    <Style.Triggers>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter Property="Content" Value="Ausklappen"/>
-                                
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter Property="Content" Value="Einklappen"/>
-                            </Trigger>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <!--<Setter Property="Background" Value="#876213"/> -->
-                                <Setter Property="BorderBrush" Value="Navy"/>
-                                <Setter Property="Foreground" Value="Navy"/>
-                            </Trigger>
-                  
-                            
-                            
-                    </Style.Triggers>
-                </Style>
-                </ToggleButton.Style>
+            <Viewbox Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <Button Content="Infos" Command="{Binding InfoWindow}" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <Button Content="Aktualisieren" Style="{StaticResource DarkBlueButton}" Width="100" Height="30"/>
+            </Viewbox>
 
-            </ToggleButton>
-            
+
+            <!-- Toogle Collapse -->
+            <Viewbox Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+                <ToggleButton Name="Expander" FontSize="14" Width="100" Height="30" Command="{Binding ToggleCollapse}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=IsChecked}" >
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <!--#F5AB0F-->
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="10">
+                                            <Border.Effect>
+                                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
+                                            </Border.Effect>
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <ContentPresenter.Effect>
+
+                                                    <DropShadowEffect Color="Black" BlurRadius="4" ShadowDepth="2" Opacity="0.5"/>
+                                                </ContentPresenter.Effect>
+                                            </ContentPresenter>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="#F5AB0F"/>
+                            <Setter Property="Content" Value="Off"/>
+                            <Setter Property="BorderBrush" Value="#FDFEFC"/>
+                            <Setter Property="Foreground" Value="#FDFEFC"/>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter Property="Content" Value="Ausklappen"/>
+
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="False">
+                                    <Setter Property="Content" Value="Einklappen"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!--<Setter Property="Background" Value="#876213"/> -->
+                                    <Setter Property="BorderBrush" Value="Navy"/>
+                                    <Setter Property="Foreground" Value="Navy"/>
+                                </Trigger>
+
+
+
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+
+                </ToggleButton>
+            </Viewbox>
+
         </Grid>
 
 

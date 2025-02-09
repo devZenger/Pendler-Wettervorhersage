@@ -38,7 +38,7 @@ namespace Pendler_Wettervorhersage
             ForecastReport forecastReport = new ForecastReport();
 
             forecastReport.TitleDay = "angekommen";
-            forecastReport.ApiWeatherDiscription = "sonnig";
+            forecastReport.ApiWeatherDiscription = "stellenweise leichter Regen";
             forecastReport.TemperaturC = "5°C";
             forecastReport.FeelsLikeTempC = "7°";
             forecastReport.AddtionalInformation = "geh baden";
@@ -83,7 +83,7 @@ namespace Pendler_Wettervorhersage
             int chanceOfSnow = rawForecastData.Forecast.Forecastdays[day].Hours[time[0]].ChanceOfSnow;
 
             if (chanceOfRain > 0 && chanceOfSnow > 0)
-                forecastReport.AddtionalInformation = $"Niederschlagsw.: Regen {chanceOfRain}%, Schnee {chanceOfSnow}%";
+                forecastReport.AddtionalInformation = $"Regen.: {chanceOfRain}%, Schnee.: {chanceOfSnow}%";
             else if (chanceOfRain > 0 && chanceOfSnow == 0)
                 forecastReport.AddtionalInformation = $"Regen.: {chanceOfRain}%";
             else if (chanceOfRain == 0 && chanceOfSnow > 0)

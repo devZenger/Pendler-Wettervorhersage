@@ -16,7 +16,7 @@
             }
         }
 
-        private string _apiWeatherDiscription = "sonnig";
+        private string _apiWeatherDiscription = "stellenweise leichter Regenfall";
         public string ApiWeatherDiscription
         {
             get => _apiWeatherDiscription;
