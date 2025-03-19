@@ -7,7 +7,6 @@ namespace Pendler_Wettervorhersage
 {
     internal class ForecastDataProcess
     {
-
         public List<ForecastReport> GetProcess(WeatherApiResponse rawForecastData, SearchParameter searchInput)
         {
             List<ForecastReport> forecastReportForPanels = new List<ForecastReport>();
@@ -29,8 +28,6 @@ namespace Pendler_Wettervorhersage
             }
             return forecastReportForPanels;
         }
-
-
         internal ForecastReport SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
         {
             int[] time = TimeToInt(timeString);
@@ -42,7 +39,6 @@ namespace Pendler_Wettervorhersage
             forecastReport.TemperaturC = "5°C";
             forecastReport.FeelsLikeTempC = "7°";
             forecastReport.AddtionalInformation = "geh baden";
-
 
             if (day == 0) 
                 forecastReport.TitleDay = "Heute";
@@ -98,7 +94,6 @@ namespace Pendler_Wettervorhersage
 
             return forecastReport;
         }
-
         internal int[] TimeToInt(string timeInput)
         {
             string[] time = timeInput.Split(":");
@@ -107,19 +102,16 @@ namespace Pendler_Wettervorhersage
             timeInt[1] = Convert.ToInt32(time[1]);
             return timeInt;
         }
-
         internal string ValueAtMinutes(decimal one, decimal two, int minutes)
         {
             return ((one + two) / 60 * minutes + one).ToString("F1");   
            
         }
-
         internal bool CheckDayLight(string time, string sunrise, string sunset)
         {
             DateTime dateTime;
             DateTime dateSunrise;
             DateTime dateSunset;
-
 
             if (DateTime.TryParseExact(sunrise, "h:mm tt", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateSunrise) != true)
                         MessageBox.Show("Fehlerhafte Sonnenaufgangszeit Konvertierung");
@@ -133,15 +125,7 @@ namespace Pendler_Wettervorhersage
             if (dateTime >= dateSunrise && dateTime < dateSunset)
                 return true;
             else
-                return false;
-
-
-            
+                return false;    
         }
-
-
-
-
-
     }
 }

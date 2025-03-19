@@ -12,14 +12,12 @@ namespace Pendler_Wettervorhersage.Service
 {
     internal class WeatherIconsPath
     {
-
         public string GetIconPath(int code, bool day) 
         {
             if (day == false)
             {
                 return code switch
                 {
-
                     // Sunny and cloudy
                     1000 => "/Icons/WeatherNight/clear-night.svg",
                     1003 => "/Icons/WeatherNight/partly-cloudy-night.svg",

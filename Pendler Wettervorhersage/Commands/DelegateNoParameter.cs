@@ -21,13 +21,11 @@ namespace Pendler_Wettervorhersage
             }
             this.executeHdl = executeHdl;
         }
-
         public void RaiseCanExecuteChanged()
         {
             if (this.CanExecuteChanged != null)
                 this.CanExecuteChanged(this, null);
         }
-
         public bool CanExecute(object parameter)
         {
             return canExecuteHdl == null || canExecuteHdl() == true;

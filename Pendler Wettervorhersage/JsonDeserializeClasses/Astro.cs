@@ -11,10 +11,10 @@ namespace Pendler_Wettervorhersage
     {
 
         [JsonProperty("sunrise")]
-        public string Sunrise { get; set; }
+        public string Sunrise { get; set; } = string.Empty;
 
         [JsonProperty("sunset")]
-        public string Sunset { get; set; }
+        public string Sunset { get; set; } = string.Empty;
 
     }
 }

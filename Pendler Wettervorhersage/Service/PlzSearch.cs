@@ -18,7 +18,6 @@ namespace Pendler_Wettervorhersage
                              select record;
 
                 return result.ToList();
-
             }
         }
     }

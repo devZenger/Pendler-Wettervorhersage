@@ -4,10 +4,8 @@ namespace Pendler_Wettervorhersage
 {
     internal class SearchInputCheck
     {
-       
         public bool CheckInput(SearchParameter input)
         {
-           
             bool testLocation = LocationCheck(input.SearchLocation);
 
             bool testStartTime = CheckTime(input.StartTime);
@@ -18,10 +16,9 @@ namespace Pendler_Wettervorhersage
                 return false;
             else
                 return true;
-
         }
 
-        public bool LocationCheck(string input)
+        internal bool LocationCheck(string input)
         {
             bool test = String.IsNullOrEmpty(input);
             if (input == "Ort eingeben")
@@ -29,14 +26,12 @@ namespace Pendler_Wettervorhersage
             return test;
         }
 
-        public bool CheckTime(string timeInput)
+        internal bool CheckTime(string timeInput)
         {
             int[] timeResult = new int[2];
             bool timeTest = true;
-
-
-
             string[] timeSplit = timeInput.Split(':');
+
             if (timeSplit.Length != 2)
             {
                 return timeTest;
@@ -65,9 +60,7 @@ namespace Pendler_Wettervorhersage
                     }
                 }
             }
-
             return timeTest;
-        }
-        
+        }  
     }
 }
