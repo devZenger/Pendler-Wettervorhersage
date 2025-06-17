@@ -1,0 +1,12 @@
+@startuml
+class DelegateNoParameter {
+    - canExecuteHdl : Func<bool> <<get>> <<set>>
+    - executeHdl : Action <<get>> <<set>>
+    + DelegateNoParameter(executeHdl:Action, canExecuteHdl:Func<bool>)
+    + RaiseCanExecuteChanged() : void
+    + CanExecute(parameter:object) : bool
+    +  <<event>> CanExecuteChanged : EventHandler 
+    + Execute(parameter:object) : void
+}
+ICommand <|-- DelegateNoParameter
+@enduml

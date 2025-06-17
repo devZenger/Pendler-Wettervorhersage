@@ -18,8 +18,6 @@ namespace Pendler_Wettervorhersage
                 {
                     _searchLocation = value;
                     OnPropertyChanged();
-                    
-                    
                 }
             }
         }
@@ -34,8 +32,6 @@ namespace Pendler_Wettervorhersage
                 {
                     _startTime = value;
                     OnPropertyChanged();
-
-
                 }
             }
         }

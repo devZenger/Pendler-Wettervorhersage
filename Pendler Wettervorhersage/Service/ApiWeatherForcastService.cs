@@ -20,7 +20,6 @@ namespace Pendler_Wettervorhersage
 
             string lat;
             string lon;
-                
 
             if (plz)
             {
@@ -31,7 +30,6 @@ namespace Pendler_Wettervorhersage
                 lon = plzResult[0].Longitude;
                 searchLocation = $"{lat}, {lon}";   
             }
-
 
             string apiKey = Properties.Settings.Default.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";
@@ -51,7 +49,6 @@ namespace Pendler_Wettervorhersage
             WeatherApiResponse? weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
 
             return weatherApiRespone;
-
         }
     }
 }

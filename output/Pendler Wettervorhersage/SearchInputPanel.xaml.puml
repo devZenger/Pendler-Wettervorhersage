@@ -1,0 +1,6 @@
+@startuml
+class SearchInputPanel <<partial>> {
+    + SearchInputPanel()
+}
+UserControl <|-- SearchInputPanel
+@enduml

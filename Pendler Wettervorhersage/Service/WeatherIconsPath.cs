@@ -12,7 +12,7 @@ namespace Pendler_Wettervorhersage.Service
 {
     internal class WeatherIconsPath
     {
-        public string getIconPath(int code, bool day) 
+        public string GetIconPath(int code, bool day) 
         {
             if (day == false)
             {

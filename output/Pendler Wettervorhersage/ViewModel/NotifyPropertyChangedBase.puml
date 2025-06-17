@@ -1,0 +1,7 @@
+@startuml
+class NotifyPropertyChangedBase {
+    +  <<event>> PropertyChanged : PropertyChangedEventHandler? 
+    + <<virtual>> OnPropertyChanged(propertyName:string) : void
+}
+INotifyPropertyChanged <|-- NotifyPropertyChangedBase
+@enduml

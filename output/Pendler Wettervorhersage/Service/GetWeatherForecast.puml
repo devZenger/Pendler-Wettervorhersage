@@ -1,0 +1,5 @@
+@startuml
+class GetWeatherForecast {
+    + Process(searchParameter:SearchParameter) : List<ForecastReport>
+}
+@enduml

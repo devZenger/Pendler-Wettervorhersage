@@ -18,18 +18,14 @@ namespace Pendler_Wettervorhersage
             if (executeHdl == null)
             {
                 throw new ArgumentNullException("executeHdl", "Please specify the command.");
-
             }
             this.executeHdl = executeHdl;
         }
-
         public void RaiseCanExecuteChanged()
         {
             if (this.CanExecuteChanged != null)
                 this.CanExecuteChanged(this, null);
-
         }
-
         public bool CanExecute(object parameter)
         {
             return canExecuteHdl == null || canExecuteHdl() == true;
@@ -43,10 +39,7 @@ namespace Pendler_Wettervorhersage
             {
                 throw new InvalidOperationException("Execute handler is not initialized.");
             }
-           
-
             executeHdl();
         }
-
     }
 }

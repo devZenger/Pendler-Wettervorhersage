@@ -1,0 +1,12 @@
+@startuml
+class "DelegateCommand`1"<T> {
+    - canExecuteHdl : Predicate<T> <<get>> <<set>>
+    - executeHdl : Action<T> <<get>> <<set>>
+    + DelegateCommand(executeHdl:Action<T>, canExecuteHdl:Predicate<T>)
+    + RaiseCanExecuteChanged() : void
+    + CanExecute(parameter:object) : bool
+    +  <<event>> CanExecuteChanged : EventHandler 
+    + Execute(parameter:object) : void
+}
+ICommand <|-- "DelegateCommand`1"
+@enduml

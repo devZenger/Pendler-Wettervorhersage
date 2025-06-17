@@ -1,0 +1,7 @@
+@startuml
+class Location {
+    + Name : string <<get>> <<set>>
+    + Region : string <<get>> <<set>>
+    + Country : string <<get>> <<set>>
+}
+@enduml

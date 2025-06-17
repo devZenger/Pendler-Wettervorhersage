@@ -1,0 +1,10 @@
+@startuml
+class Hour {
+    + Time : string <<get>> <<set>>
+    + TempC : decimal <<get>> <<set>>
+    + Condition : Condition <<get>> <<set>>
+    + FeelsLikeC : decimal <<get>> <<set>>
+    + ChanceOfRain : int <<get>> <<set>>
+    + ChanceOfSnow : int <<get>> <<set>>
+}
+@enduml

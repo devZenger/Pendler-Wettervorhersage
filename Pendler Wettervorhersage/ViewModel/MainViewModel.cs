@@ -93,21 +93,6 @@ namespace Pendler_Wettervorhersage
 
         }
 
-
-        public void Errormessage(ErrorMessages messageErrors)
-        {
-            int messageNumber;
-
-            for (messageNumber = 0; messageNumber < messageErrors.MessageErrors.Count; messageNumber++)
-            {
-                if (messageErrors.MessageErrors[messageNumber].IsError == true)
-                    break;
-            }
-
-            MessageBox.Show($"{messageErrors.MessageErrors[messageNumber].Message}", "Info", MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-
         //Collapse search input
         private int _columWidth = 200;
         public int ColumWidth
@@ -155,8 +140,8 @@ namespace Pendler_Wettervorhersage
         {
             SettingsManager settingsManager = new SettingsManager();
 
-            settingsManager.updateHometown(HometownInput); 
-            settingsManager.updateWorkplace(WorkplaceInput);
+            settingsManager.UpdateHometown(HometownInput); 
+            settingsManager.UpdateWorkplace(WorkplaceInput);
         }
 
         public bool canSaveInput()
