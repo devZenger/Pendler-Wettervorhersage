@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
         mc:Ignorable="d"
-        Title="Info" Height="450" Width="800">
+        Title="Info" Height="500" Width="800">
     <Window.Resources>
         <Style x:Key="BrightRoundedBorder" TargetType="Border">
             <Setter Property="Background" Value="#FDFEFC"/>
@@ -17,16 +17,15 @@
         </Style>
     </Window.Resources>
         
-    
     <Grid Background="#608BC1">
        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Background="#133E87" Width="400" Height="50" CornerRadius="10" BorderBrush="#FDFEFC" BorderThickness="1">
@@ -37,8 +36,6 @@
         <TextBlock Text="Programmiert von Christian Zenger" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         
-
-
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -47,19 +44,15 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.005*"/>
+                <RowDefinition Height="1.2*"/>
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-            <Viewbox Grid.Column="1" VerticalAlignment="Center" Margin="2">
-                <local:WeatherInfoPanelView DataContext="{Binding Info}" Width="150" Height="110"/>
-            </Viewbox>
-
-
+                <local:WeatherInfoPanelView DataContext="{Binding Info}" Grid.Column="1" Width="150"/>
                 <Border Style="{StaticResource BrightRoundedBorder}" Width="360">
-                <Grid>
-                    
-                    <Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -75,12 +68,12 @@
                 </Grid>
             </Border>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                <Border Style="{StaticResource BrightRoundedBorder}" Width="150">
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <TextBlock Text="  Api Standort Antwort" FontSize="14" />
                 </Border>
-                <Border Style="{StaticResource BrightRoundedBorder}" Width="360" Height="30">
-                    <TextBlock Text="  Information um Eingabestandort und Api Standort&#10; zu vergleichen" xml:space="preserve" FontSize="14"/>
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="360">
+                    <TextBlock Text="API-Antwort für den angegebenen Standort: Leider kann&#10;es vorkommen, dass die Wetterdaten nicht den&#10;gewünschten Ort entspricht. Um dies zu überprüfen,&#10;kann man sich die Api-Antwort ansehen.&#10;Falls der Ort als Postleitzahl eingegeben wird werden die&#10;Wetterdaten anhand von Längen- und Breitengraden&#10;gesucht, wodurch ortsnahe Ergebnisse erscheinen&#10;können." xml:space="preserve" FontSize="14" Margin="5,0,0,0"/>
                 </Border>
 
 
