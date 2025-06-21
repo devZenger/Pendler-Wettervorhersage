@@ -76,7 +76,7 @@ namespace Pendler_Wettervorhersage.Service
 
                     //Rain
                     1195 => "/Icons/Weather/rain.svg",
-                    1186 or 1189 or 1192 => "/Icons/Weather/partly-cloudy-day-rain.scg",
+                    1186 or 1189 or 1192 => "/Icons/Weather/partly-cloudy-day-rain.svg",
                     1063 or 1180 or 1183 or 1240 => "/Icons/Weather/partly-cloudy-day-drizzle.svg",
 
                     //Snow 
