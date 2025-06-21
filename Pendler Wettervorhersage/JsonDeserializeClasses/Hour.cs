@@ -13,7 +13,7 @@ namespace Pendler_Wettervorhersage
         public string Time { get; set; } = string.Empty;
         [JsonProperty("temp_c")]
         public decimal TempC { get; set; }
-        public Condition Condition { get; set; }
+        public Condition? Condition { get; set; }
         [JsonProperty("feelslike_c")]
         public decimal FeelsLikeC { get; set; }
         [JsonProperty("chance_of_rain")]
