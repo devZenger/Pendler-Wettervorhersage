@@ -14,7 +14,7 @@ namespace Pendler_Wettervorhersage
         public MainWindow()
         {
             InitializeComponent();
-            this.Icon = new BitmapImage(new Uri("pack:\application:,,,/Icons/sunset.ico"));
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/Icons/sunset.ico"));
 
             var viewModel = new MainViewModel();
             this.DataContext = viewModel;
