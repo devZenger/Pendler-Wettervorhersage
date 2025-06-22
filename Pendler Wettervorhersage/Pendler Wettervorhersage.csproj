@@ -7,9 +7,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Icons\sunset.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icons\sunset.ico" />
     <None Remove="Icons\WeatherNight\clear-night.svg" />
     <None Remove="Icons\WeatherNight\fog-night.svg" />
     <None Remove="Icons\WeatherNight\haze-night.svg" />
@@ -44,7 +46,7 @@
     <None Remove="Icons\Weather\thunderstorms-day-rain.svg" />
     <None Remove="Icons\Weather\thunderstorms-day-snow.svg" />
     <None Remove="Icons\Weather\thunderstorms-day.svg" />
-    <None Remove="Resourcen\PLZ.csv" />
+    <None Remove="Resourcen\plz_geo.csv" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +56,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Icons\sunset.ico" />
     <Resource Include="Icons\WeatherNight\clear-night.svg" />
     <Resource Include="Icons\WeatherNight\fog-night.svg" />
     <Resource Include="Icons\WeatherNight\haze-night.svg" />
@@ -71,7 +74,9 @@
     <Resource Include="Icons\WeatherNight\thunderstorms-night-rain.svg" />
     <Resource Include="Icons\WeatherNight\thunderstorms-night-snow.svg" />
     <Resource Include="Icons\WeatherNight\thunderstorms-night.svg" />
-    <Resource Include="Icons\Weather\clear-day.svg" />
+    <Resource Include="Icons\Weather\clear-day.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\Weather\fog-day.svg" />
     <Resource Include="Icons\Weather\haze-day.svg" />
     <Resource Include="Icons\Weather\overcast-day.svg" />
@@ -88,22 +93,9 @@
     <Resource Include="Icons\Weather\thunderstorms-day-rain.svg" />
     <Resource Include="Icons\Weather\thunderstorms-day-snow.svg" />
     <Resource Include="Icons\Weather\thunderstorms-day.svg" />
-    <Resource Include="Resourcen\PLZ.csv" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Content Include="Resourcen\plz_geo.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
