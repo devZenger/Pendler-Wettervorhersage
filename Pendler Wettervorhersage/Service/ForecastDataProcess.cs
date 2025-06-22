@@ -34,11 +34,6 @@ namespace Pendler_Wettervorhersage
 
             ForecastReport forecastReport = new ForecastReport();
 
-            forecastReport.TitleDay = "angekommen";
-            forecastReport.ApiWeatherDiscription = "stellenweise leichter Regen";
-            forecastReport.TemperaturC = "5°C";
-            forecastReport.FeelsLikeTempC = "7°";
-            forecastReport.AddtionalInformation = "geh baden";
 
             if (day == 0) 
                 forecastReport.TitleDay = "Heute";
@@ -104,7 +99,7 @@ namespace Pendler_Wettervorhersage
         }
         internal string ValueAtMinutes(decimal one, decimal two, int minutes)
         {
-            return ((one + two) / 60 * minutes + one).ToString("F1");   
+            return ((two - one) / 60 * minutes + one).ToString("F1");   
            
         }
         internal bool CheckDayLight(string time, string sunrise, string sunset)
