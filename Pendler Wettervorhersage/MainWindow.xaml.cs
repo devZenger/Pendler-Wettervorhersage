@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Media.Imaging;
 
 
 
@@ -12,8 +13,8 @@ namespace Pendler_Wettervorhersage
         
         public MainWindow()
         {
-            Properties.Settings.Default.Reset();
             InitializeComponent();
+            this.Icon = new BitmapImage(new Uri("pack:\application:,,,/Icons/sunset.ico"));
 
             var viewModel = new MainViewModel();
             this.DataContext = viewModel;
