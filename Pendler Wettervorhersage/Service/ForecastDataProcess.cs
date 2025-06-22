@@ -11,12 +11,9 @@ namespace Pendler_Wettervorhersage
         {
             List<ForecastReport> forecastReportForPanels = new List<ForecastReport>();
 
-            if (rawForecastData.Error != null)
+            if (rawForecastData.Error != null && rawForecastData.Error.Code != 0)
             {
-                if (rawForecastData.Error.Code != 0)
-                {
-                    throw new Exception(rawForecastData.Error.Message);
-                }
+                    throw new Exception(rawForecastData.Error.Message);   
             }
             else { 
             for (int i = 0; i < 3; i++)
