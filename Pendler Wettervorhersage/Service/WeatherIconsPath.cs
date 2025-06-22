@@ -1,18 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Documents;
-using System.Windows.Media.Media3D;
-
-namespace Pendler_Wettervorhersage.Service
+﻿namespace Pendler_Wettervorhersage.Service
 {
     internal class WeatherIconsPath
     {
-        public string GetIconPath(int code, bool day) 
+        public string GetIconPath(int code, bool day)
         {
             if (day == false)
             {

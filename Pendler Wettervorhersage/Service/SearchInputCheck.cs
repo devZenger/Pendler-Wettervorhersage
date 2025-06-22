@@ -1,6 +1,4 @@
-﻿using Pendler_Wettervorhersage.Service;
-
-namespace Pendler_Wettervorhersage
+﻿namespace Pendler_Wettervorhersage
 {
     internal class SearchInputCheck
     {
@@ -17,7 +15,6 @@ namespace Pendler_Wettervorhersage
             else
                 return true;
         }
-
         internal bool LocationCheck(string input)
         {
             bool test = String.IsNullOrEmpty(input);
@@ -25,7 +22,6 @@ namespace Pendler_Wettervorhersage
                 test = true;
             return test;
         }
-
         internal bool CheckTime(string timeInput)
         {
             int[] timeResult = new int[2];
@@ -61,6 +57,6 @@ namespace Pendler_Wettervorhersage
                 }
             }
             return timeTest;
-        }  
+        }
     }
 }
