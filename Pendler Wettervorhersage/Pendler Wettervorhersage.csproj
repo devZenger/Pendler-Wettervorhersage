@@ -56,7 +56,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Icons\sunset.ico" />
+    <Resource Include="Icons\sunset.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Icons\WeatherNight\clear-night.svg" />
     <Resource Include="Icons\WeatherNight\fog-night.svg" />
     <Resource Include="Icons\WeatherNight\haze-night.svg" />

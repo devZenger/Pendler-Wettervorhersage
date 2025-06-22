@@ -19,16 +19,7 @@ namespace Pendler_Wettervorhersage
             var viewModel = new MainViewModel();
             this.DataContext = viewModel;
 
-
-
-
-
-
         }
-
-       
-
-       
     }
 
 }
