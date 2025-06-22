@@ -1,6 +1,0 @@
-@startuml
-class Error {
-    + Code : int <<get>> <<set>> = 0
-    + Message : string <<get>> <<set>>
-}
-@enduml

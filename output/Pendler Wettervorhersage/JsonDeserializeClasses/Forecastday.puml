@@ -1,7 +1,0 @@
-@startuml
-class Forecastday {
-    + Date : string <<get>> <<set>>
-    + Hours : List<Hour> <<get>> <<set>>
-    + Astro : Astro <<get>> <<set>>
-}
-@enduml

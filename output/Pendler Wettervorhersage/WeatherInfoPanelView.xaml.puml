@@ -1,6 +1,0 @@
-@startuml
-class WeatherInfoPanelView <<partial>> {
-    + WeatherInfoPanelView()
-}
-UserControl <|-- WeatherInfoPanelView
-@enduml

@@ -1,5 +1,0 @@
-@startuml
-class WeatherIconsPath {
-    + GetIconPath(code:int, day:bool) : string
-}
-@enduml

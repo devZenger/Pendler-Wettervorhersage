@@ -1,5 +1,0 @@
-@startuml
-class ApiWeatherForcastService {
-    + UseWeatherApi(searchLocation:string) : WeatherApiResponse
-}
-@enduml

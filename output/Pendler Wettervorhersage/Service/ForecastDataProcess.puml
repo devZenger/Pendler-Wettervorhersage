@@ -1,9 +1,0 @@
-@startuml
-class ForecastDataProcess {
-    + GetProcess(rawForecastData:WeatherApiResponse, searchInput:SearchParameter) : List<ForecastReport>
-    <<internal>> SingleDayForecast(rawForecastData:WeatherApiResponse, timeString:string, day:int) : ForecastReport
-    <<internal>> TimeToInt(timeInput:string) : int[]
-    <<internal>> ValueAtMinutes(one:decimal, two:decimal, minutes:int) : string
-    <<internal>> CheckDayLight(time:string, sunrise:string, sunset:string) : bool
-}
-@enduml

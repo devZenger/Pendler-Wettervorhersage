@@ -1,6 +1,0 @@
-@startuml
-class Astro {
-    + Sunrise : string <<get>> <<set>>
-    + Sunset : string <<get>> <<set>>
-}
-@enduml
