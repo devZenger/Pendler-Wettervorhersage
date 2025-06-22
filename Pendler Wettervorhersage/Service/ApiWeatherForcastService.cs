@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Pendler_Wettervorhersage.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +31,12 @@ namespace Pendler_Wettervorhersage
                 lon = plzResult[0].Longitude;
                 searchLocation = $"{lat}, {lon}";   
             }
+            if (searchLocation == "München" || searchLocation == "Pfaffenhofen")
+            {
+                searchLocation = $"{searchLocation} Bayern";
+            }
 
-            string apiKey = Properties.Settings.Default.ApiKey;
+            string apiKey = SettingsService.Current.ApiKey;
             string urlStart = "http://api.weatherapi.com/v1/forecast.json?key=";
 
             string days = "3";
@@ -46,7 +51,12 @@ namespace Pendler_Wettervorhersage
 
             Console.WriteLine(responseWeatherApi);
 
-            WeatherApiResponse? weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
+            var weatherApiRespone = JsonConvert.DeserializeObject<WeatherApiResponse>(responseWeatherApi);
+
+            if (weatherApiRespone != null)
+            {
+                throw new InvalidOperationException("Die Wetterdaten konten nicht geladen werden.");
+            }
 
             return weatherApiRespone;
         }
