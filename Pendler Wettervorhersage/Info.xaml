@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
          xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
-        Title="Info" Height="900" Width="780">
+        Title="Info" Height="920" Width="780">
     <Window.Resources>
         <Style x:Key="BrightRoundedBorder" TargetType="Border">
             <Setter Property="Background" Value="#FDFEFC"/>
@@ -78,13 +78,13 @@
 
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition Height="7.3*"/>
+            <RowDefinition Height="7.5*"/>
             <RowDefinition Height="0.1*"/>
             <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Background="#133E87" Width="380" Height="50" CornerRadius="10" BorderBrush="#FDFEFC" BorderThickness="1" Grid.ColumnSpan="1"  HorizontalAlignment="Center" Margin="0,9,0,9">
-            <TextBlock Text="Pendler Wettervorhersage" Grid.ColumnSpan="1" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
+            <TextBlock Text="Pendler–Wettervorhersage" Grid.ColumnSpan="1" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
             </TextBlock>
         </Border>
 
@@ -96,7 +96,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="2.2*"/>
+                <RowDefinition Height="2.3*"/>
                 <RowDefinition Height="0*"/>
                 <RowDefinition Height="1.0*"/>
                 <RowDefinition Height="0.0*"/>
@@ -118,7 +118,8 @@
                         <LineBreak/>- Lizenz: Appache License 2.0 
                         <LineBreak/>- Quelle: <Hyperlink NavigateUri="https://github.com/mkonrad/plz-geocoord" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/mkonrad/plz-geocoord</Hyperlink>
                         <LineBreak/>– Dieses Programm wurde für private Zwecke entwickelt und kann kostenlos genutzt werden. 
-                        <LineBreak/>– Weitere Informationen zur Anwendung findest du in der README-Datei unter:  <Hyperlink NavigateUri="https://www.weatherapi.com/" RequestNavigate="Hyperlink_RequestNavigate">/github/devZenger.</Hyperlink>
+                        <LineBreak/>– Weitere Informationen zur Anwendung findest du in der README-Datei unter: 
+                        <LineBreak/> <Hyperlink NavigateUri="https://github.com/devZenger/Pendler-Wettervorhersage" RequestNavigate="Hyperlink_RequestNavigate">/github/devZenger/Pendler-Wettervorhersage.</Hyperlink>
                         <LineBreak/>– Für die Wetterdaten wird die Api von Weather APi genutzt. Um einen Api-Key zu erhalten, kann man sich dort 
                         kostenlos registieren: Der Link ist:
                         <Hyperlink NavigateUri="https://www.weatherapi.com/signup.aspx" RequestNavigate="Hyperlink_RequestNavigate">offiziellen Website von WeatherAPI.</Hyperlink>
