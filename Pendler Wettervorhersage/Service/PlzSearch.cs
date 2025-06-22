@@ -33,7 +33,6 @@ namespace Pendler_Wettervorhersage
     {
         [Index(0)]
         public int Plz { get; set; }
-        //public string City { get; set; } = string.Empty;
         [Index(1)]
         public string Latidude { get; set; } = string.Empty;
         [Index(2)]
