@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
+using System.Windows.Navigation;
 
 namespace Pendler_Wettervorhersage
 {
@@ -22,9 +24,20 @@ namespace Pendler_Wettervorhersage
         public Info()
         {
             InitializeComponent();
-            
-            this.DataContext = new MainViewModel();
+            this.Icon = new BitmapImage(new Uri("pack://application:,,,/icons/sunset.ico"));
 
+            var viewModel = new MainViewModel();
+            this.DataContext = viewModel;
+
+            
+
+
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri)
+            { UseShellExecute = true });
+            e.Handled = true;
         }
     }
 }
