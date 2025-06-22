@@ -1,4 +1,5 @@
-﻿using Pendler_Wettervorhersage.Service;
+﻿
+using Pendler_Wettervorhersage.Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
@@ -10,10 +11,10 @@ namespace Pendler_Wettervorhersage
         public ObservableCollection<ForecastReport> HometownPanels { get; set; }
         public ObservableCollection<ForecastReport> WorkplacePanels { get; set; }
 
-        private SearchParameter _hometownInput;
+        private SearchParameter? _hometownInput;
         public SearchParameter HometownInput
         {
-            get => _hometownInput;
+            get => _hometownInput!;
             set
             {
                 if (_hometownInput != value)
@@ -29,23 +30,23 @@ namespace Pendler_Wettervorhersage
                 }
             }
         }
-        private void HometownInput_PropertyChanged(object? sender, PropertyChangedEventArgs e) 
+        private void HometownInput_PropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(HometownInput.SearchLocation) || e.PropertyName == nameof(HometownInput.StartTime) || e.PropertyName == nameof(HometownInput.EndTime))
             { SaveAndGetWeatherCommand?.RaiseCanExecuteChanged(); }
         }
 
-        private SearchParameter _workplaceInput;
+        private SearchParameter? _workplaceInput;
         public SearchParameter WorkplaceInput
         {
-            get => _workplaceInput;
+            get => _workplaceInput!;
             set
             {
                 if (_workplaceInput != value)
                 {
                     _workplaceInput = value;
                     OnPropertyChanged();
-        
+
                     if (_workplaceInput != null)
                         _workplaceInput.PropertyChanged -= WorkplaceInput_PropertyChanged;
 
@@ -59,6 +60,10 @@ namespace Pendler_Wettervorhersage
             if (e.PropertyName == nameof(WorkplaceInput.SearchLocation) || e.PropertyName == nameof(WorkplaceInput.StartTime) || e.PropertyName == nameof(WorkplaceInput.EndTime))
             { SaveAndGetWeatherCommand?.RaiseCanExecuteChanged(); }
         }
+        public ApiKey ApiKeyModel { get; }
+
+        public DelegateNoParameter SaveCommand { get; }
+
 
 
 
@@ -73,16 +78,19 @@ namespace Pendler_Wettervorhersage
 
 
             HometownPanels = new ObservableCollection<ForecastReport>();
+            DefaultHometown();
             WorkplacePanels = new ObservableCollection<ForecastReport>();
-            for (int i = 0; i < 6; i++)
-            {
-                HometownPanels.Add(new ForecastReport());
-                WorkplacePanels.Add(new ForecastReport());
-
-            }
+            DefaultWorkplace();
 
             HometownInput = new SearchParameter();
             WorkplaceInput = new SearchParameter();
+
+            ApiKeyModel = new ApiKey
+            {
+                StoredApiKey = SettingsService.Current.ApiKey
+            };
+
+            this.SaveCommand = new DelegateNoParameter(SaveApiKey);
 
             ToggleCollapse = new DelegateCommand<bool?>(UseCollapse);
 
@@ -90,7 +98,6 @@ namespace Pendler_Wettervorhersage
             this.InfoWindow = new DelegateNoParameter(StartInfo);
 
             Startapp();
-
         }
 
         //Collapse search input
@@ -106,7 +113,7 @@ namespace Pendler_Wettervorhersage
             get => _columWidthBlue;
             set { if (_columWidthBlue != value) { _columWidthBlue = value; OnPropertyChanged(); } }
         }
-        public DelegateCommand<bool?> ToggleCollapse { get;}
+        public DelegateCommand<bool?> ToggleCollapse { get; }
 
         public void UseCollapse(bool? status)
         {
@@ -117,13 +124,13 @@ namespace Pendler_Wettervorhersage
                     ColumWidthBlue = 0;
                     Application.Current.MainWindow.Width = 540;
                 }
-                else 
-                { 
+                else
+                {
                     ColumWidth = 200;
                     ColumWidthBlue = 5;
                     Application.Current.MainWindow.Width = 780;
                 }
-          }
+        }
 
 
         // Save and get weather reports
@@ -138,10 +145,37 @@ namespace Pendler_Wettervorhersage
 
         internal void SaveInput()
         {
-            SettingsManager settingsManager = new SettingsManager();
+            if (SettingsService.Current.HometownLocation != HometownInput.SearchLocation)
+            {
+                SettingsService.Current.HometownLocation = HometownInput.SearchLocation;
+                SettingsService.Save();
+            }
+            if (SettingsService.Current.HometownStartTime != HometownInput.StartTime)
+            {
+                SettingsService.Current.HometownStartTime = HometownInput.StartTime;
+                SettingsService.Save();
+            }
+            if (SettingsService.Current.HometownEndTime != HometownInput.EndTime)
+            {
+                SettingsService.Current.HometownEndTime = HometownInput.EndTime;
+                SettingsService.Save();
+            }
 
-            settingsManager.UpdateHometown(HometownInput); 
-            settingsManager.UpdateWorkplace(WorkplaceInput);
+            if (SettingsService.Current.WorkplaceLocation != WorkplaceInput.SearchLocation)
+            {
+                SettingsService.Current.WorkplaceLocation = WorkplaceInput.SearchLocation;
+                SettingsService.Save();
+            }
+            if (SettingsService.Current.WorkplaceStartTime != WorkplaceInput.StartTime)
+            {
+                SettingsService.Current.WorkplaceStartTime = WorkplaceInput.StartTime;
+                SettingsService.Save();
+            }
+            if (SettingsService.Current.WorkplaceEndTime != WorkplaceInput.EndTime)
+            {
+                SettingsService.Current.WorkplaceEndTime = WorkplaceInput.EndTime;
+                SettingsService.Save();
+            }
         }
 
         public bool canSaveInput()
@@ -175,11 +209,20 @@ namespace Pendler_Wettervorhersage
                 HometownInput.Name = forecastReports[0].Name;
                 HometownInput.Region = forecastReports[0].Region;
                 HometownInput.Country = forecastReports[0].Country;
+
+                HometownInput.ErrorMessage = "";
+
             }
             catch (Exception ex)
             {
-                HometownInput.ErrorMessage = ex.Message;
+                DefaultHometown();
+
+                if (ex.Message == "API key is invalid.")
+                    HometownInput.ErrorMessage = "API-Key ist ungültig";
+                else
+                    HometownInput.ErrorMessage = ex.Message;
             }
+
             // Workplace part
             forecastReports.Clear();
             try
@@ -194,36 +237,37 @@ namespace Pendler_Wettervorhersage
                 WorkplaceInput.Name = forecastReports[0].Name;
                 WorkplaceInput.Region = forecastReports[0].Region;
                 WorkplaceInput.Country = forecastReports[0].Country;
+
+                WorkplaceInput.ErrorMessage = "";
             }
             catch (Exception ex)
             {
-                WorkplaceInput.ErrorMessage = ex.Message;
+                DefaultWorkplace();
+                if (ex.Message == "API key is invalid.")
+                    WorkplaceInput.ErrorMessage = "API-Key ist ungültig";
+                else
+                    WorkplaceInput.ErrorMessage = ex.Message;
             }
         }
 
         //Programm start
         internal void Startapp()
         {
-            SettingsManager settingsManager = new SettingsManager();
+            WorkplaceInput.SearchLocation = SettingsService.Current.WorkplaceLocation;
+            WorkplaceInput.StartTime = SettingsService.Current.WorkplaceStartTime;
+            WorkplaceInput.EndTime = SettingsService.Current.WorkplaceEndTime;
 
-            //if (settingsManager.FirstStart == true)
-            //{
-            //settingsManager.FirstStart = false;
+            HometownInput.SearchLocation = SettingsService.Current.HometownLocation;
+            HometownInput.StartTime = SettingsService.Current.HometownStartTime;
+            HometownInput.EndTime = SettingsService.Current.HometownEndTime;
 
-                WorkplaceInput.SearchLocation = settingsManager.WorkplaceLocation;
-                WorkplaceInput.StartTime = settingsManager.WorkplaceSartTime;
-                WorkplaceInput.EndTime = settingsManager.WorkplaceEndTime;
+            GetWeatherReports();
 
-            
-                HometownInput.SearchLocation = settingsManager.HometownLocation;
-           
-                HometownInput.StartTime = settingsManager.HometownSartTime;
-                HometownInput.EndTime = settingsManager.HometownEndTime;
-
-                GetWeatherReports();
-
-
-            //}
+            if (SettingsService.Current.FirstStart == true)
+            {
+                StartInfo();
+                SettingsService.Current.FirstStart = false;
+            }
         }
 
         // InfoWindow
@@ -235,7 +279,32 @@ namespace Pendler_Wettervorhersage
             InfoWindow.Show();
         }
 
+        private void SaveApiKey()
+        {
+            SettingsService.Current.ApiKey = ApiKeyModel.StoredApiKey;
+        }
 
 
+        private void DefaultHometown()
+        {
+            DefaultForecastReports defaultReports = new DefaultForecastReports();
+
+            HometownPanels.Clear();
+            foreach (ForecastReport forecastReport in defaultReports.ForecastsHome)
+            {
+                HometownPanels.Add(forecastReport);
+            }
+
+        }
+        private void DefaultWorkplace()
+        {
+            DefaultForecastReports defaultReports = new DefaultForecastReports();
+
+            WorkplacePanels.Clear();
+            foreach (ForecastReport forecastReport in defaultReports.ForecastsWork)
+            {
+                WorkplacePanels.Add(forecastReport);
+            }
+        }
     }
 }
