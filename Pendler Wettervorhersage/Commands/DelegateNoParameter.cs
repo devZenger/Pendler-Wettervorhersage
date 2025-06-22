@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 
 namespace Pendler_Wettervorhersage
 {
@@ -12,9 +7,13 @@ namespace Pendler_Wettervorhersage
         Func<bool> canExecuteHdl { get; set; }
         Action executeHdl { get; set; }
 
-        public DelegateNoParameter(Action executeHdl, Func<bool> canExecuteHdl = null)
+        public DelegateNoParameter(Action executeHdl, Func<bool>? canExecuteHdl = null)
         {
-            this.canExecuteHdl = canExecuteHdl;
+            if (canExecuteHdl == null)
+                this.canExecuteHdl = AlwaysTrue;
+            else
+                this.canExecuteHdl = canExecuteHdl;
+
             if (executeHdl == null)
             {
                 throw new ArgumentNullException("executeHdl", "Please specify the command.");
@@ -23,23 +22,26 @@ namespace Pendler_Wettervorhersage
         }
         public void RaiseCanExecuteChanged()
         {
-            if (this.CanExecuteChanged != null)
-                this.CanExecuteChanged(this, null);
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object? parameter)
         {
-            return canExecuteHdl == null || canExecuteHdl() == true;
+            return canExecuteHdl == null || canExecuteHdl();
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
-        public void Execute(object parameter)
+        public void Execute(object? parameter)
         {
             if (executeHdl == null)
             {
                 throw new InvalidOperationException("Execute handler is not initialized.");
             }
             executeHdl();
+        }
+        private bool AlwaysTrue()
+        {
+            return true;
         }
     }
 }
