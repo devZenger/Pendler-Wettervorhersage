@@ -38,6 +38,5 @@ namespace Pendler_Wettervorhersage
         public string Latidude { get; set; } = string.Empty;
         [Index(2)]
         public string Longitude { get; set; } = string.Empty;
-
     }
 }
