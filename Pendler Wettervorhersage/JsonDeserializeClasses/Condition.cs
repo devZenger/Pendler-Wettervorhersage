@@ -10,7 +10,7 @@ namespace Pendler_Wettervorhersage
     internal class Condition
     {
         [JsonProperty("code")]
-        public int Code { get; set; }
+        public int Code { get; set; } = 0;
         [JsonProperty("text")]
         public string Text {  get; set; } = string.Empty;
         [JsonProperty("icon")]
