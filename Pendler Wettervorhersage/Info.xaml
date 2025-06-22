@@ -4,87 +4,209 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pendler_Wettervorhersage"
+         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
         mc:Ignorable="d"
-        Title="Info" Height="500" Width="800">
+        Title="Info" Height="900" Width="780">
     <Window.Resources>
         <Style x:Key="BrightRoundedBorder" TargetType="Border">
             <Setter Property="Background" Value="#FDFEFC"/>
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="1"/>
-            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="CornerRadius" Value="9.5"/>
             <Setter Property="Margin" Value="2"/>
-
         </Style>
+
+        <Style x:Key="API_Input" TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <!--#D4E4FF   #FFE3E3FF-->
+                        <Border Background="#D2E3FF" BorderBrush="Black" BorderThickness="1" CornerRadius="8" >
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
+                            </Border.Effect>
+                            <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Style for dark blue buttons-->
+        <Style x:Key="DarkBlueButton" TargetType="Button">
+            <!--Template for curved corner-->
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="2" Opacity="0.5" />
+                            </Border.Effect>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!--Standard Settings-->
+            <Setter Property="Background" Value="#133E87"/>
+            <Setter Property="Foreground" Value="#FDFEFC"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="BorderBrush" Value="#FDFEFC"/>
+            <!-- Triger for mouse over and click-->
+            <Style.Triggers>
+                <!--mouse over-->
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#133E87"/>
+                    <Setter Property="Foreground" Value="#F5AB0F"/>
+                    <Setter Property="BorderBrush" Value="#F5AB0F"/>
+                </Trigger>
+                <!--mouse click-->
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Foreground" Value="#FDFEFC"/>
+                    <Setter Property="BorderBrush" Value="#FDFEFC"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
     </Window.Resources>
-        
+
     <Grid Background="#608BC1">
-       
+
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="7.3*"/>
             <RowDefinition Height="0.1*"/>
-            <RowDefinition/>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Background="#133E87" Width="400" Height="50" CornerRadius="10" BorderBrush="#FDFEFC" BorderThickness="1">
-            <TextBlock Text="Pendler Wettervorhersage" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
-             
-        </TextBlock>
+        <Border Grid.Row="0" Background="#133E87" Width="380" Height="50" CornerRadius="10" BorderBrush="#FDFEFC" BorderThickness="1" Grid.ColumnSpan="1"  HorizontalAlignment="Center" Margin="0,9,0,9">
+            <TextBlock Text="Pendler Wettervorhersage" Grid.ColumnSpan="1" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
+            </TextBlock>
         </Border>
-        <TextBlock Text="Programmiert von Christian Zenger" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-        
-        <Grid Grid.Row="2">
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6.9*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="0.005*"/>
-                <RowDefinition Height="1.2*"/>
+                <RowDefinition Height="2.2*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="1.0*"/>
+                <RowDefinition Height="0.0*"/>
+                <RowDefinition Height="1.3*"/>
+                <RowDefinition Height="0.4*"/>
             </Grid.RowDefinitions>
-
             <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <local:WeatherInfoPanelView DataContext="{Binding Info}" Grid.Column="1" Width="150"/>
-                <Border Style="{StaticResource BrightRoundedBorder}" Width="360">
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="150" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5">
+                    <TextBlock TextWrapping="Wrap" FontWeight="Bold" TextAlignment="Center" FontSize="14" Margin="2"> Informationen<LineBreak/> zur App
+                    </TextBlock>
+                </Border>
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="440" HorizontalAlignment="Center" VerticalAlignment="Stretch" Padding="5">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="14" Margin="5">– Version 1.0.0 – Juni 2025
+                        <LineBreak/>– Programmiert von Christian Zenger
+                        <LineBreak/>– Danke an Bas Milius, von dem die Wetter-Icons stammen.
+                        <LineBreak/>– Seine Webseite ist: (webseite einfügen)
+                        <LineBreak/>– Die Icons stehen unter MIT-Lizenz.
+                        <LineBreak/>- Geokoordination für Postleitzahlen von Markus Konrad, WZB Berlin, Januar 2019
+                        <LineBreak/>- Lizenz: Appache License 2.0 
+                        <LineBreak/>- Quelle: <Hyperlink NavigateUri="https://github.com/mkonrad/plz-geocoord" RequestNavigate="Hyperlink_RequestNavigate">https://github.com/mkonrad/plz-geocoord</Hyperlink>
+                        <LineBreak/>– Dieses Programm wurde für private Zwecke entwickelt und kann kostenlos genutzt werden. 
+                        <LineBreak/>– Weitere Informationen zur Anwendung findest du in der README-Datei unter:  <Hyperlink NavigateUri="https://www.weatherapi.com/" RequestNavigate="Hyperlink_RequestNavigate">/github/devZenger.</Hyperlink>
+                        <LineBreak/>– Für die Wetterdaten wird die Api von Weather APi genutzt. Um einen Api-Key zu erhalten, kann man sich dort 
+                        kostenlos registieren: Der Link ist:
+                        <Hyperlink NavigateUri="https://www.weatherapi.com/signup.aspx" RequestNavigate="Hyperlink_RequestNavigate">offiziellen Website von WeatherAPI.</Hyperlink>
+
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="150" HorizontalAlignment="Center" VerticalAlignment="Stretch" Padding="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.03*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="0.03*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.2*"></RowDefinition>
+                            <RowDefinition Height="1.1*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="1.1*"></RowDefinition>
+                            <RowDefinition Height="0.2*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Heute" Grid.Row="1" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2"/>
+                        <TextBlock Text="stellenweise Regenfall" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Panel.ZIndex="2"/>
+                        <TextBlock Text="-10,5°C" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2"/>
+                        <TextBlock Text="27,5°C" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Panel.ZIndex="2" />
+                        <svgc:SvgViewbox Source="/Icons/Weather/partly-cloudy-day-rain.svg" Grid.Column="1"  Grid.Row="2" Grid.RowSpan="5" Width="60" Height="60" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                        <TextBlock Text="Regenw.: 67%" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12"  Panel.ZIndex="2"/>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="440" HorizontalAlignment="Center" VerticalAlignment="Stretch" Padding="5">
                     <Grid>
                         <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition Height="0.1*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="  - Der Tag" Grid.Row="0" Panel.ZIndex="1" FontSize="14" />
-                    <TextBlock Text="  - Beschreibung des Wetters (von der API)" Grid.Row="1" Grid.Column="1" Panel.ZIndex="1" FontSize="14"/>
-                    <TextBlock Text="  - erwartete Temperatur" Grid.Row="2" Panel.ZIndex="1" FontSize="14"/>
-                    <TextBlock Text="  - gefühlte Temperatur" Grid.Row="3" Panel.ZIndex="1" FontSize="14"/>
-                    <TextBlock Text="  - Niederschlagwahrscheinlichkeit für Regen und Schnee" Grid.Row="4" Panel.ZIndex="1" FontSize="14"/>
-                </Grid>
-            </Border>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                <Border Style="{StaticResource BrightRoundedBorder}" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock Text="  Api Standort Antwort" FontSize="14" />
+                            <RowDefinition Height="0.2*"></RowDefinition>
+                            <RowDefinition Height="1.1*"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="1.1*"></RowDefinition>
+                            <RowDefinition Height="0.2*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="  - Der Tag" Grid.Row="1" Panel.ZIndex="1" FontSize="14" />
+                        <TextBlock Text="  - Beschreibung des Wetters (von der API)" Grid.Row="2" Grid.Column="1" Panel.ZIndex="1" FontSize="14"/>
+                        <TextBlock Text="  - erwartete Temperatur" Grid.Row="4" Panel.ZIndex="1" FontSize="14"/>
+                        <TextBlock Text="  - gefühlte Temperatur" Grid.Row="5" Panel.ZIndex="1" FontSize="14"/>
+                        <TextBlock Text="  - Niederschlagwahrscheinlichkeit für Regen und Schnee" Grid.Row="7" Panel.ZIndex="1" FontSize="14"/>
+                    </Grid>
                 </Border>
-                <Border Style="{StaticResource BrightRoundedBorder}" Width="360">
-                    <TextBlock Text="API-Antwort für den angegebenen Standort: Leider kann&#10;es vorkommen, dass die Wetterdaten nicht den&#10;gewünschten Ort entspricht. Um dies zu überprüfen,&#10;kann man sich die Api-Antwort ansehen.&#10;Falls der Ort als Postleitzahl eingegeben wird werden die&#10;Wetterdaten anhand von Längen- und Breitengraden&#10;gesucht, wodurch ortsnahe Ergebnisse erscheinen&#10;können." xml:space="preserve" FontSize="14" Margin="5,0,0,0"/>
-                </Border>
-
-
             </StackPanel>
-            
-            
-            
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="150" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="5">
+                    <TextBlock TextWrapping="Wrap" FontWeight="Bold" TextAlignment="Center" FontSize="14" Margin="5"> Hinweise<LineBreak/> zur Nutzung
+                    </TextBlock>
+                </Border>
+                <Border Style="{StaticResource BrightRoundedBorder}" Width="440" HorizontalAlignment="Center" VerticalAlignment="Stretch" Padding="5">
+                    <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="14" Margin="5">- Stelle sicher, dass du einen gültigen API-Key eingibst.
+                        <LineBreak/>– Deutsche Ortsnamen können falsch zugeordnet werden, gib ggf. das Land oder Bundesland mit angeben.
+                        <LineBreak/>– Alternativ kann auch die Postleitzahl verwendet werden. Die Wetterdaten werden anhand geografischer Koordinaten ermittelt. Dabei kann es vorkommen, dass nicht der gewünschte Ort, sondern ein benachbarter Ort angezeigt wird.
+                        <LineBreak/>– Der Standort, von dem die Wetterdaten stammen, kann unter „API-Antwort“ überprüft werden.
+                        
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+            <Grid Grid.Row="5" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Style="{StaticResource API_Input}" Text="{Binding ApiKeyModel.StoredApiKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <Button x:Name="SaveAndCall" Command="{Binding SaveCommand}"  Content="API-Key Speichern" Style="{StaticResource DarkBlueButton}" Grid.Column="0"   Width="130" Height="34" Margin="0,0,13,0"/>
+
+            </Grid>
+
         </Grid>
-        
-        
-        
-        
+
+
+
     </Grid>
 </Window>
