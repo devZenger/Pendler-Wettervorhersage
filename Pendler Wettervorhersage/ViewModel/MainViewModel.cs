@@ -309,7 +309,7 @@ namespace Pendler_Wettervorhersage
                 return "Verbindungsfehler: Internet prüfen.";
 
             else if (ex.Message.Contains("401") || ex.Message.Contains("API key is invalid"))
-                return "Ungültiger API-Key";
+                return "Ungültiger API-Key.";
             else
                 return "Unbekannter Fehler.";
 
