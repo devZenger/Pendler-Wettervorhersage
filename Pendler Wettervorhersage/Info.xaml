@@ -84,7 +84,7 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Row="0" Background="#133E87" Width="380" Height="50" CornerRadius="10" BorderBrush="#FDFEFC" BorderThickness="1" Grid.ColumnSpan="1"  HorizontalAlignment="Center" Margin="0,9,0,9">
-            <TextBlock Text="Pendler–Wettervorhersage" Grid.ColumnSpan="1" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
+            <TextBlock Text="Pendler-Wettervorhersage" Grid.ColumnSpan="1" Background="Transparent" Foreground="#FDFEFC"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="26">
             </TextBlock>
         </Border>
 
@@ -112,7 +112,7 @@
                     <TextBlock TextWrapping="Wrap" TextAlignment="Justify" FontSize="14" Margin="5">– Version 1.0.0 – Juni 2025
                         <LineBreak/>– Programmiert von Christian Zenger
                         <LineBreak/>– Danke an Bas Milius, von dem die Wetter-Icons stammen.
-                        <LineBreak/>– Seine Webseite ist: (webseite einfügen)
+                        <LineBreak/>– Seine Webseite ist: <Hyperlink NavigateUri="https://bas.dev" RequestNavigate="Hyperlink_RequestNavigate">https://bas.dev/</Hyperlink>
                         <LineBreak/>– Die Icons stehen unter MIT-Lizenz.
                         <LineBreak/>- Geokoordination für Postleitzahlen von Markus Konrad, WZB Berlin, Januar 2019
                         <LineBreak/>- Lizenz: Appache License 2.0 

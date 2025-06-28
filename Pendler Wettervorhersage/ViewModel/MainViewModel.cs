@@ -2,6 +2,7 @@
 using Pendler_Wettervorhersage.Service;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Net.Sockets;
 using System.Windows;
 
 namespace Pendler_Wettervorhersage
@@ -67,7 +68,7 @@ namespace Pendler_Wettervorhersage
 
 
 
-        public MainViewModel()
+        internal MainViewModel()
         {
             ForecastReport Info = new ForecastReport();
             Info.TitleDay = "Heute";
@@ -115,7 +116,7 @@ namespace Pendler_Wettervorhersage
         }
         public DelegateCommand<bool?> ToggleCollapse { get; }
 
-        public void UseCollapse(bool? status)
+        private void UseCollapse(bool? status)
         {
             if (status.HasValue)
                 if (status == true)
@@ -134,8 +135,8 @@ namespace Pendler_Wettervorhersage
 
 
         // Save and get weather reports
-        public DelegateNoParameter SaveAndGetWeatherCommand { get; set; }
-        public void SaveAndGetWeatherReports()
+        public DelegateNoParameter SaveAndGetWeatherCommand { get; }
+        internal void SaveAndGetWeatherReports()
         {
             SaveInput();
 
@@ -143,7 +144,7 @@ namespace Pendler_Wettervorhersage
         }
 
 
-        internal void SaveInput()
+        private void SaveInput()
         {
             if (SettingsService.Current.HometownLocation != HometownInput.SearchLocation)
             {
@@ -178,7 +179,7 @@ namespace Pendler_Wettervorhersage
             }
         }
 
-        public bool canSaveInput()
+        private bool canSaveInput()
         {
             SearchInputCheck searchInputCheck = new SearchInputCheck();
 
@@ -191,7 +192,7 @@ namespace Pendler_Wettervorhersage
                 return false;
         }
 
-        public void GetWeatherReports()
+        private void GetWeatherReports()
         {
             GetWeatherForecast getWeatherForecast = new GetWeatherForecast();
 
@@ -217,10 +218,7 @@ namespace Pendler_Wettervorhersage
             {
                 DefaultHometown();
 
-                if (ex.Message == "API key is invalid.")
-                    HometownInput.ErrorMessage = "API-Key ist ungültig";
-                else
-                    HometownInput.ErrorMessage = ex.Message;
+                HometownInput.ErrorMessage = ErrorHandling(ex);
             }
 
             // Workplace part
@@ -243,10 +241,8 @@ namespace Pendler_Wettervorhersage
             catch (Exception ex)
             {
                 DefaultWorkplace();
-                if (ex.Message == "API key is invalid.")
-                    WorkplaceInput.ErrorMessage = "API-Key ist ungültig";
-                else
-                    WorkplaceInput.ErrorMessage = ex.Message;
+
+                WorkplaceInput.ErrorMessage = ErrorHandling(ex);
             }
         }
 
@@ -273,10 +269,10 @@ namespace Pendler_Wettervorhersage
         // InfoWindow
         public DelegateNoParameter InfoWindow { get; }
 
-        public void StartInfo()
+        private void StartInfo()
         {
-            var InfoWindow = new Info();
-            InfoWindow.Show();
+            var infoWindowInstance = new Info();
+            infoWindowInstance.Show();
         }
 
         private void SaveApiKey()
@@ -305,6 +301,18 @@ namespace Pendler_Wettervorhersage
             {
                 WorkplacePanels.Add(forecastReport);
             }
+        }
+
+        private string ErrorHandling(Exception ex)
+        {
+            if (ex.Message.Contains("Host") || ex.Message.Contains("unbekannt") || ex.InnerException is SocketException)
+                return "Verbindungsfehler: Internet prüfen.";
+
+            else if (ex.Message.Contains("401") || ex.Message.Contains("API key is invalid"))
+                return "Ungültiger API-Key";
+            else
+                return "Unbekannter Fehler.";
+
         }
     }
 }
