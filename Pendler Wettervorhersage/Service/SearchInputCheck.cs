@@ -15,14 +15,14 @@
             else
                 return true;
         }
-        internal bool LocationCheck(string input)
+        private bool LocationCheck(string input)
         {
             bool test = String.IsNullOrEmpty(input);
             if (input == "Ort eingeben")
                 test = true;
             return test;
         }
-        internal bool CheckTime(string timeInput)
+        private bool CheckTime(string timeInput)
         {
             int[] timeResult = new int[2];
             bool timeTest = true;
