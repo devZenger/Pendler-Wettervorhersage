@@ -25,7 +25,7 @@ namespace Pendler_Wettervorhersage
             }
             return forecastReportForPanels;
         }
-        internal ForecastReport SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
+        private ForecastReport SingleDayForecast(WeatherApiResponse rawForecastData, string timeString, int day)
         {
             int[] time = TimeToInt(timeString);
 
@@ -88,7 +88,7 @@ namespace Pendler_Wettervorhersage
 
             return forecastReport;
         }
-        internal int[] TimeToInt(string timeInput)
+        private int[] TimeToInt(string timeInput)
         {
             string[] time = timeInput.Split(":");
             int[] timeInt = new int[2];
@@ -96,12 +96,12 @@ namespace Pendler_Wettervorhersage
             timeInt[1] = Convert.ToInt32(time[1]);
             return timeInt;
         }
-        internal string ValueAtMinutes(decimal one, decimal two, int minutes)
+        private string ValueAtMinutes(decimal one, decimal two, int minutes)
         {
             return ((two - one) / 60 * minutes + one).ToString("F1");   
            
         }
-        internal bool CheckDayLight(string time, string sunrise, string sunset)
+        private bool CheckDayLight(string time, string sunrise, string sunset)
         {
             DateTime dateTime;
             DateTime dateSunrise;
