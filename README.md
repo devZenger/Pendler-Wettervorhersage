@@ -109,8 +109,8 @@ Pendler-Wettervorhersage/
 
 <div style="text-align: center;">
   <b><br>Pendler-Wetterapp: Eingeklappte Ansicht</b><br>
-  <img src="Images/Screenshot_folded.png" alt="Beispielergebnis der Wetterapp mit eingeklapptem Fenster." title="Pendler-Wetterapp in eingeklappter Form" style="width:80%; height:auto;"><br>
-  <div style="display: inline-block; max-width: 80%; margin: 5px auto; text-align: left;">
+  <img src="Images/Screenshot_folded.png" alt="Beispielergebnis der Wetterapp mit eingeklapptem Fenster." title="Pendler-Wetterapp in eingeklappter Form" style="width:60%; height:auto;"><br>
+  <div style="display: inline-block; max-width: 60%; margin: 5px auto; text-align: left;">
     <p>
       <strong>Beschreibung:</strong> In dieser Ansicht ist das Fenster eingeklappt. Orte und Uhrzeiten werden ausgeblendet, wodurch eine minimalistische Darstellung der Wetterdaten entsteht.
     </p>
@@ -165,7 +165,7 @@ Bei Fragen oder Feedback freue ich mich über eine Nachricht.
 ### Drittanbieter-Komponeten
 
 - **.NET 8.0 / C#** – [MIT License](https://github.com/dotnet/runtime/blob/main/LICENSE.TXT)
-- **CsvHelper** [Apache License, Version 2.0](https://joshclose.github.io/CsvHelper/)
+- **CsvHelper** – [Apache License, Version 2.0](https://joshclose.github.io/CsvHelper/)
 - **Newtonsoft.Json** – [MIT License](https://github.com/JamesNK/Newtonsoft.Json?tab=MIT-1-ov-file#readme)
 - **SharpVectors** – [BSD 3-Clause License](https://github.com/ElinamLLC/SharpVectors/blob/master/License.md)
 
