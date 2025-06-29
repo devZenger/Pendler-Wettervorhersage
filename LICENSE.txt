@@ -1,0 +1,23 @@
+Lizenz
+
+Copyright (c) 2025 Christian Zenger  
+GitHub: https://github.com/devZenger/Pendler-Wetterapp
+
+Dieses Projekt wurde ausschließlich zu Lern- und Demonstrationszwecken entwickelt.
+Die Nutzung des Quellcodes ist für den privaten, nicht-kommerziellen Gebrauch gestattet
+
+Eine Weitergabe, Veränderung oder kommerzielle Nutzung ist nur mit ausdrücklicher Genehmigung erlaubt.
+
+Bei Fragen oder Feedback freue ich mich über eine Nachricht.
+
+Drittanbieter-Komponeten
+
+- .NET 8.0 / C# – MIT License: https://github.com/dotnet/runtime/blob/main/LICENSE.TXT
+- CsvHelper – Apache License, Version 2.0: https://joshclose.github.io/CsvHelper/
+- Newtonsoft.Json – MIT License: https://github.com/JamesNK/Newtonsoft.Json?tab=MIT-1-ov-file#readme
+- SharpVectors – BSD 3-Clause License: https://github.com/ElinamLLC/SharpVectors/blob/master/License.md
+
+Quellen für Daten & Grafiken
+
+- Icons von Bas Milus, lizenziert unter MIT License: https://github.com/basmilius/weather-icons?tab=MIT-1-ov-file#readme
+- PLZ-Geokoordinaten von Markus Konrad, Apache License 2.0: https://github.com/mkonrad/plz-geocoord
