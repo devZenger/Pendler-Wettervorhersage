@@ -1,4 +1,4 @@
-# Pendler-Wetterapp – Ein WPF-Project mit C# 
+# Pendler-Wetterapp – Ein WPF-Projekt mit C# 
 
 **Portable Desktop-App zur Wetteranzeige für Wohn- und Arbeitsort**, jeweils am Morgen und Abend – mit Temperatur, Regenwahrscheinlichkeit, Tag-/Nacht-Symbolik und zweitägiger Vorschau.
 Entwickelt mit **C# / .NET 8.0 (WPF)**, umgesetzt im **MVVM-Muster** mit Datenbindung, SVG-Grafikdarstellung und API-Anbindung. Das Projekt dient der praxisnahen Anwendung moderner Softwarearchitektur in einem realistischen Anwendungsfall.
