@@ -6,7 +6,7 @@ Entwickelt mit **C# / .NET 8.0 (WPF)**, umgesetzt im **MVVM-Muster** mit Datenbi
 
 <div style="text-align: center;">
   <b><br>Pendler-Wetterapp: Ohne API-Key</b><br>
-  <img src="images/Screenshot_without_key.png" alt="Pendler-Wetterapp ohne API-Key. Zeigt verschiedene Wetter-Icons als Beispiel für die Darstellung." title="Pendler-Wetterapp: Ohne API-Key" style="width:80%; height:auto;"><br>
+  <img src="Images/Screenshot_without_key.png" alt="Pendler-Wetterapp ohne API-Key. Zeigt verschiedene Wetter-Icons als Beispiel für die Darstellung." title="Pendler-Wetterapp: Ohne API-Key" style="width:80%; height:auto;"><br>
 <div style="display: inline-block; max-width: 80%; margin: 5px auto; text-align: left;">
     <p>
       <strong>Beschreibung:</strong> Diese Ansicht zeigt die Wetter-App im Zustand ohne gültigen API-Key. Es erscheint eine entsprechende Fehlermeldung, wie sie beim ersten Start der Anwendung angezeigt wird. Gleichzeitig sind verschiedene Wetter-Icons sichtbar, die beispielhaft die Darstellung unterschiedlicher Wetterlagen zeigen. Anhand der Icons lässt sich auch erkennen, ob es sich um Tag- oder Nachtzeiten handelt.
@@ -99,7 +99,7 @@ Pendler-Wettervorhersage/
 
 <div style="text-align: center;">
   <b><br>Pendler-Wetterapp: Beispiel</b><br>
-  <img src="images/Screenshot_example.png" alt="Beispielergebnis der Wetterapp." title="Pendler-Wetterapp: Beispiel" style="width:80%; height:auto;"><br>
+  <img src="Images/Screenshot_example.png" alt="Beispielergebnis der Wetterapp." title="Pendler-Wetterapp: Beispiel" style="width:80%; height:auto;"><br>
   <div style="display: inline-block; max-width: 80%; margin: 5px auto; text-align: left;">
     <p>
       <strong>Beschreibung:</strong> Zu sehen ist ein Beispiel der Wetterapp mit den Orten Pfaffenhofen und München sowie den zugehörigen Uhrzeiten. Die Wetterdaten werden übersichtlich dargestellt.
@@ -109,7 +109,7 @@ Pendler-Wettervorhersage/
 
 <div style="text-align: center;">
   <b><br>Pendler-Wetterapp: Eingeklappte Ansicht</b><br>
-  <img src="images/Screenshot_folded.png" alt="Beispielergebnis der Wetterapp mit eingeklapptem Fenster." title="Pendler-Wetterapp in eingeklappter Form" style="width:80%; height:auto;"><br>
+  <img src="Images/Screenshot_folded.png" alt="Beispielergebnis der Wetterapp mit eingeklapptem Fenster." title="Pendler-Wetterapp in eingeklappter Form" style="width:80%; height:auto;"><br>
   <div style="display: inline-block; max-width: 80%; margin: 5px auto; text-align: left;">
     <p>
       <strong>Beschreibung:</strong> In dieser Ansicht ist das Fenster eingeklappt. Orte und Uhrzeiten werden ausgeblendet, wodurch eine minimalistische Darstellung der Wetterdaten entsteht.
@@ -119,7 +119,7 @@ Pendler-Wettervorhersage/
 
 <div style="text-align: center;">
   <b><br>Pendler-Wetterapp: Informationsfenster</b><br>
-  <img src="images/Screenshot_information.png" alt="Informationsfenster mit Hinweisen zur Nutzung des Programms." title="Pendler-Wetterapp: Informationsfenster" style="width:80%; height:auto;"><br>
+  <img src="Images/Screenshot_information.png" alt="Informationsfenster mit Hinweisen zur Nutzung des Programms." title="Pendler-Wetterapp: Informationsfenster" style="width:80%; height:auto;"><br>
   <div style="display: inline-block; max-width: 80%; margin: 5px auto; text-align: left;">
     <p>
       <strong>Beschreibung:</strong> Im Informationsfenster finden sich Hinweise zur Nutzung der App, eine Beispielerklärung der Wetterdaten sowie Informationen zum API-Key, der hier angezeigt und gespeichert werden kann.
